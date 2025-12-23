@@ -1,0 +1,3 @@
+Ce plugin permet d'obtenir un thème à colonne centrale pour l'administration uniquement.
+Quelques options de personnalisation vous sont offertes.
+Habillage CSS uniquement !

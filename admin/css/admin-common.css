@@ -1,0 +1,244 @@
+/* Général */    
+.eiw .messages {
+  background: linear-gradient(
+    to right,
+    var(--messages-main-color) 0,
+    var(--messages-main-color) var(--fade-start),
+    rgba(0, 0, 0, 0.05) 100%
+  );
+}
+
+.eiw .infos {
+  background: linear-gradient(
+    to right,
+    var(--infos-main-color) 0,
+    var(--infos-main-color) var(--fade-start),
+    rgba(0, 170, 0, 0.05) 100%
+  );
+}
+
+.eiw .warnings {
+  background: linear-gradient(
+    to right,
+    var(--warning-main-color) 0,
+    var(--warning-main-color) var(--fade-start),
+    rgba(0, 0, 0, 0.05) 100%
+  );
+}
+
+.eiw .error {
+  background: linear-gradient(
+    to right,
+    var(--error-main-color) 0,
+    var(--error-main-color) var(--fade-start),
+    rgba(0, 0, 0, 0.05) 100%
+  );
+}
+    
+
+/* Centrage */
+#theAdminPage {
+    max-width: var(--admin-width);
+    min-width: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#theAdminPage #the_page {
+    position: inherit;
+}
+
+/* Footer */
+#theAdminPage #footer {
+  position: fixed;
+  bottom: 0;
+  left: max(0px, calc((100vw - var(--admin-width)) / 2));
+  max-width: var(--admin-width);
+  width: var(--footer-width);
+}
+
+/* -- Menubar -- */
+#menubar,
+#pwgHead a.visit-gallery {
+  left: max(0px, calc((100vw - var(--admin-width)) / 2));
+  max-width: var(--admin-width);
+  width: var(--footer-width);
+}
+
+/* -- Communs -- */
+.eiw ul li:nth-child(2) a[href="admin.php?page=plugins&filter=deactivated"],
+#showCreateSite a,
+#showAddPermalink a {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* -- Page d'accueil -- */
+
+/* -- 1er Page -- */
+.intro-page-container {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  margin: 0 15px 0 15px;
+}
+
+/* -- Bouton de synchro rapide -- */
+.showCreateAlbum {
+    display: none !important;
+}
+
+/* -- Barre d'actions -- */
+.pluginTypeFilter {
+  left: var(--align-pluginFilter-left);
+}
+
+.pluginFilter {
+  right: var(--align-pluginFilter-right);
+}
+
+.AlbumViewSelector {
+  right: 20px;
+}
+
+@media (min-width: 1600px) {
+  .pluginTypeFilter {
+    left: calc((100vw - var(--admin-width)) / 2 + var(--align-pluginFilter-left));
+  }
+
+  .pluginFilter {
+    right: calc((100vw - var(--admin-width)) / 2 + var(--align-pluginFilter-right));
+  }
+
+  .AlbumViewSelector {
+    right: calc((100vw - var(--admin-width)) / 2 + 20px);
+  }
+}
+
+.sort {
+  background-color: #f3f3f3;
+}
+
+/* -- Plugins -- */
+.pluginMiniBox .pluginDesc {
+  height: 6em;
+}
+
+.pluginContainer.classic-form .switch {
+  top: 43px;
+}
+
+.pluginContainer.classic-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Cartes plugins */
+.pluginMiniBox {
+  width: 323px;
+  flex: 1 1 calc(25% - 15px);
+  min-width: 260px;
+  max-width: 323px;
+}
+
+/* Après installation [HACK] */
+.eiw ul li:nth-child(2) a[href="admin.php?page=plugins&filter=deactivated"]:before {
+  content: "➥ ";
+  display: inline;
+}
+
+/* -- Photos -- */
+/* - Ajout - */
+/* Applications */
+.applicationCard {
+  width: 657px;
+  flex: 1 1 calc(25% - 15px);
+  max-width: 657px;
+  min-width: 500px;
+}
+
+/* Tags */
+#search-tag {
+  right: var(--alignsearch-tag-left);
+}
+
+.selection-mode-group-manager {
+  right: 15px;
+  margin-top: 8px;
+}
+
+@media (min-width: 1600px) {
+  #search-tag {
+    right: calc((100vw - var(--admin-width)) / 2 + var(--alignsearch-tag-left)) !important;
+  }
+  .selection-mode-group-manager {
+    right: calc((100vw - var(--admin-width)) / 2 + 15px);
+  }
+}
+
+.tag-container {
+  padding-right: 25px;
+}
+
+/* Gestion par lots */
+/* Mode global */
+#batchManagerGlobal #selectedMessage {
+  float: initial;
+}
+
+/* Mode unitaire */
+.bottom-save-bar {
+  right: 0px;
+  width: calc(var(--admin-width) - var(--admin-sidebar) + 20px);
+}
+
+@media (min-width: 1600px) {
+  .bottom-save-bar {
+    right: calc((100vw - var(--admin-width)) /2);
+  }
+}
+
+/* -- Utilisateurs -- */
+/* - Gérer - */
+/* Liste */
+.selection-mode-group-manager {
+  right: 30px
+}
+
+@media (min-width: 1600px) {
+  .selection-mode-group-manager {
+    right: calc((100vw - var(--admin-width)) / 2 + 30px) !important;
+  }
+}
+
+/* - Notifications - */
+/* Paramétrage */
+.savebar-footer {
+  right: 0px;
+  width: calc(var(--admin-width) - var(--admin-sidebar) + 20px);
+}
+
+@media (min-width: 1600px) {
+  .savebar-footer {
+    right: calc((100vw - var(--admin-width)) /2);
+  }
+}
+
+/* - Historique - */
+/* Statistiques */
+.stat-compare-mode {
+  right: 10px
+}
+
+@media (min-width: 1600px) {
+  .stat-compare-mode {
+    right: calc((100vw - var(--admin-width)) / 2 + 10px) !important;
+  }
+}
+
+
+/* - Mises à jour - */
+/* */
+.icon-block::before {
+  display: inline;
+}

@@ -1,0 +1,14 @@
+/* Général */
+html {
+    background-color: #707070;
+}
+
+#content,
+.tabsheet li.selected_tab {
+  background-color: #f8f8f8;
+}
+
+#content H1,
+#tabsheet {
+  background-color: #eee;
+}
