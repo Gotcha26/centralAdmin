@@ -147,4 +147,6 @@ $lang['css_preview_active'] = 'Prévisualisation temps réel active';
 $lang['css_applying_scheme'] = 'Application du schéma : {scheme}';
 $lang['color_preview_active'] = 'Prévisualisation des couleurs active';
 $lang['color_updated_realtime'] = 'Couleur mise à jour en temps réel';
+$lang['config_scheme_saved'] = 'Configuration sauvegardée pour le thème {scheme}';
+$lang['css_vars_applied_globally'] = 'Variables CSS appliquées globalement';
 $lang[''] = '';

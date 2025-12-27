@@ -240,8 +240,8 @@
 {* Spectrum JS - Charger APRÈS jQuery mais AVANT nos scripts *}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.js"></script>
 
-{* Scripts du plugin - EN DERNIER *}
-<script src="{$CENTRAL_ADMIN_FORM_JS}"></script>
-<script src="{$CENTRAL_ADMIN_DEBUG_JS}"></script>
+{* Scripts du plugin (dans l'ordre) - EN DERNIER *}
 <script src="{$CENTRAL_ADMIN_THEME_DETECTION_JS}"></script>
+<script src="{$CENTRAL_ADMIN_FORM_JS}"></script>
 <script src="{$CENTRAL_ADMIN_PREVIEW_JS}"></script>
+<script src="{$CENTRAL_ADMIN_DEBUG_JS}"></script>

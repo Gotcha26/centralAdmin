@@ -155,7 +155,12 @@ if (isset($_POST['save'])) {
     // Sauvegarder
     conf_update_param('centralAdmin', $newConfig);
     $centralAdmin = $newConfig;
-    
+
+    // DEBUG : Vérifier ce qui a été sauvegardé
+    error_log('[CentralAdmin] Config sauvegardée - Scheme: ' . $current_scheme);
+    error_log('[CentralAdmin] Couleurs ' . $current_scheme . ': ' . print_r($newConfig['colors'][$current_scheme], true));
+    error_log('[CentralAdmin] Modifications user: ' . print_r($newConfig['user_modifications'][$current_scheme], true));
+
     $page['infos'][] = l10n('configuration_saved');
     redirect(get_admin_plugin_menu_link(dirname(__FILE__).'/admin.php'));
 }
