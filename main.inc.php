@@ -4,7 +4,7 @@ Plugin Name: Central Admin CSS
 Description: Centrage de toute l'administration sur une colonne maximum de 1600px.
              Tient compte de la couleur (clair / obscur).
              Injecte des feuilles CSS personnalisées uniquement.
-Version: 2.6.5
+Version: 2.6.6
 Author URI: https://github.com/Gotcha26/centralAdmin
 Author: Gotcha
 Has Settings: webmaster
@@ -77,8 +77,12 @@ function central_admin_generate_css_vars(array $config, $current_scheme = 'clear
     // Layout
     if (isset($config['layout'])) {
         foreach ($config['layout'] as $key => $value) {
-            // Ignorer hide_quick_sync (ce n'est pas une variable CSS)
-            if ($key === 'hide_quick_sync') continue;
+            // Traitement spécial pour hide_quick_sync
+            if ($key === 'hide_quick_sync') {
+                $displayValue = ($value === '1') ? 'none' : 'block';
+                $css .= '--ca-layout-hide-quick-sync: ' . $displayValue . ";\n";
+                continue;
+            }
             
             $css .= '--ca-layout-' . str_replace('_', '-', $key) . ': ' . (int)$value . "px;\n";
         }
@@ -165,22 +169,4 @@ add_event_handler('loc_begin_admin_page', function () {
         'head_elements',
         '<style id="central-admin-vars-preview">' . $css . '</style>'
     );
-    
-    // CSS conditionnel pour masquer le bouton sync rapide
-    if (isset($conf['centralAdmin']['layout']['hide_quick_sync']) 
-        && $conf['centralAdmin']['layout']['hide_quick_sync'] === '1') {
-        
-        error_log('[CentralAdmin] Masquage bouton sync activé');
-        
-        $template->append(
-            'head_elements',
-            '<style>
-                .showCreateAlbum,
-                a.icon-plus-circled[href*="page=album"],
-                #addAlbumForm { 
-                    display: none !important; 
-                }
-            </style>'
-        );
-    }
 });

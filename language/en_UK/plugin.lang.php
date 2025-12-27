@@ -10,3 +10,6 @@ $lang['color_preview_active'] = 'Color preview active';
 $lang['color_updated_realtime'] = 'Color updated in real-time';
 $lang['config_scheme_saved'] = 'Configuration saved for {scheme} theme';
 $lang['css_vars_applied_globally'] = 'CSS variables applied globally';
+$lang['quick_sync_display_controlled'] = 'Quick sync display controlled by CSS variable';
+$lang['php_detection_priority'] = 'PHP detection has priority';
+$lang['config_stored_in_db'] = 'Configuration stored in database (piwigo_config table)';

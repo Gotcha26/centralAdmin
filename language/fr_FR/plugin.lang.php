@@ -149,4 +149,7 @@ $lang['color_preview_active'] = 'Prévisualisation des couleurs active';
 $lang['color_updated_realtime'] = 'Couleur mise à jour en temps réel';
 $lang['config_scheme_saved'] = 'Configuration sauvegardée pour le thème {scheme}';
 $lang['css_vars_applied_globally'] = 'Variables CSS appliquées globalement';
+$lang['quick_sync_display_controlled'] = 'Affichage synchronisation rapide contrôlé par variable CSS';
+$lang['php_detection_priority'] = 'Détection PHP prioritaire';
+$lang['config_stored_in_db'] = 'Configuration stockée en base de données (table piwigo_config)';
 $lang[''] = '';

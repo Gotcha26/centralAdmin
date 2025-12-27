@@ -236,72 +236,53 @@
   /* ================================================
      COLOR PICKERS AVEC SPECTRUM
      ================================================ */
-  function initColorPickers() {
-    const colorPickers = document.querySelectorAll('.ca-color-picker');
-    let initCount = 0;
-    
-    colorPickers.forEach(picker => {
-      const pickerId = picker.id;
-      const textInputId = pickerId.replace('_picker', '_text');
-      const textInput = document.getElementById(textInputId);
-      
-      if (!textInput) {
-        console.warn('[CentralAdmin] Input texte non trouvé pour', pickerId);
-        return;
+  // Initialiser Spectrum
+  jQuery(textInput).spectrum({
+    color: textInput.value || '#000000',
+    showInput: true,
+    showInitial: true,
+    showPalette: true,
+    showButtons: false,
+    preferredFormat: "hex",
+    clickoutFiresChange: true,
+    disabled: textInput.disabled,
+    containerClassName: 'ca-spectrum-container',
+    replacerClassName: 'ca-spectrum-replacer',
+    showAlpha: false,
+    palette: [
+      ["#000","#444","#666","#999","#ccc","#eee","#f3f3f3","#fff"],
+      ["#f00","#f90","#ff0","#0f0","#0ff","#00f","#90f","#f0f"],
+      ["#f4cccc","#fce5cd","#fff2cc","#d9ead3","#d0e0e3","#cfe2f3","#d9d2e9","#ead1dc"],
+      ["#ea9999","#f9cb9c","#ffe599","#b6d7a8","#a2c4c9","#9fc5e8","#b4a7d6","#d5a6bd"],
+      ["#e06666","#f6b26b","#ffd966","#93c47d","#76a5af","#6fa8dc","#8e7cc3","#c27ba0"]
+    ],
+    move: function(color) {
+      if (color) {
+        const hexValue = color.toHexString().toUpperCase();
+        picker.value = hexValue;
+        textInput.value = hexValue;
+        
+        // Déclencher l'événement pour la prévisualisation
+        const event = new Event('spectrum-move', { bubbles: true });
+        event.color = hexValue;
+        textInput.dispatchEvent(event);
       }
-      
-      // Vérifier jQuery et Spectrum
-      if (typeof jQuery === 'undefined' || typeof jQuery.fn.spectrum === 'undefined') {
-        console.error('[CentralAdmin] jQuery ou Spectrum non disponible');
-        return;
+    },
+    change: function(color) {
+      if (color) {
+        const hexValue = color.toHexString().toUpperCase();
+        textInput.value = hexValue;
+        picker.value = hexValue;
+        console.log('[CentralAdmin] Couleur changée:', hexValue);
+        
+        // Déclencher l'événement pour la prévisualisation
+        const event = new Event('spectrum-change', { bubbles: true });
+        event.color = hexValue;
+        textInput.dispatchEvent(event);
       }
-      
-      // Cacher UNIQUEMENT le picker natif (pas l'input texte)
-      picker.style.display = 'none';
+    }
+  });
 
-      // S'assurer que l'input texte reste visible
-      textInput.style.display = 'inline-block';
-      textInput.readOnly = false;
-      
-      // Initialiser Spectrum
-      jQuery(textInput).spectrum({
-        color: textInput.value || '#000000',
-        showInput: true,
-        showInitial: true,
-        showPalette: true,
-        showButtons: false,
-        preferredFormat: "hex",
-        clickoutFiresChange: true,
-        disabled: textInput.disabled,
-        containerClassName: 'ca-spectrum-container',
-        replacerClassName: 'ca-spectrum-replacer',
-        showAlpha: false,  // Désactiver le canal alpha pour forcer hexa pur
-        palette: [
-          ["#000","#444","#666","#999","#ccc","#eee","#f3f3f3","#fff"],
-          ["#f00","#f90","#ff0","#0f0","#0ff","#00f","#90f","#f0f"],
-          ["#f4cccc","#fce5cd","#fff2cc","#d9ead3","#d0e0e3","#cfe2f3","#d9d2e9","#ead1dc"],
-          ["#ea9999","#f9cb9c","#ffe599","#b6d7a8","#a2c4c9","#9fc5e8","#b4a7d6","#d5a6bd"],
-          ["#e06666","#f6b26b","#ffd966","#93c47d","#76a5af","#6fa8dc","#8e7cc3","#c27ba0"]
-        ],
-        move: function(color) {
-          if (color) {
-            picker.value = color.toHexString();
-          }
-        },
-        change: function(color) {
-          if (color) {
-            const hexValue = color.toHexString().toUpperCase();
-            textInput.value = hexValue;
-            picker.value = hexValue;
-            console.log('[CentralAdmin] Couleur changée:', hexValue);
-          }
-        }
-      });
-      
-      initCount++;
-    });
-    
-    console.log('[CentralAdmin] Color pickers initialisés:', initCount);
-  }
+  console.log('[CentralAdmin] Color pickers initialisés:', initCount);
 
 })();
