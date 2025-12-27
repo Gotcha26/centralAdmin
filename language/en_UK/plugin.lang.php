@@ -13,3 +13,6 @@ $lang['css_vars_applied_globally'] = 'CSS variables applied globally';
 $lang['quick_sync_display_controlled'] = 'Quick sync display controlled by CSS variable';
 $lang['php_detection_priority'] = 'PHP detection has priority';
 $lang['config_stored_in_db'] = 'Configuration stored in database (piwigo_config table)';
+$lang['credits'] = 'Crédits';
+$lang['credits_modal_title'] = 'Crédits - centralAdmin';
+$lang['version_number'] = 'Version';

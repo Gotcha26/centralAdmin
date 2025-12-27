@@ -152,4 +152,7 @@ $lang['css_vars_applied_globally'] = 'Variables CSS appliquées globalement';
 $lang['quick_sync_display_controlled'] = 'Affichage synchronisation rapide contrôlé par variable CSS';
 $lang['php_detection_priority'] = 'Détection PHP prioritaire';
 $lang['config_stored_in_db'] = 'Configuration stockée en base de données (table piwigo_config)';
+$lang['credits'] = 'Crédits';
+$lang['credits_modal_title'] = 'Crédits - centralAdmin';
+$lang['version_number'] = 'Version';
 $lang[''] = '';

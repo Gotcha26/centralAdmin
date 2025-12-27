@@ -14,6 +14,7 @@
     initAccordions();
     initLockToggles();
     initSliders();
+    initCreditsModal();
     
     // Attendre que Spectrum soit chargé
     if (typeof jQuery !== 'undefined' && typeof jQuery.fn.spectrum !== 'undefined') {
@@ -234,55 +235,92 @@
   }
 
   /* ================================================
-     COLOR PICKERS AVEC SPECTRUM
-     ================================================ */
-  // Initialiser Spectrum
-  jQuery(textInput).spectrum({
-    color: textInput.value || '#000000',
-    showInput: true,
-    showInitial: true,
-    showPalette: true,
-    showButtons: false,
-    preferredFormat: "hex",
-    clickoutFiresChange: true,
-    disabled: textInput.disabled,
-    containerClassName: 'ca-spectrum-container',
-    replacerClassName: 'ca-spectrum-replacer',
-    showAlpha: false,
-    palette: [
-      ["#000","#444","#666","#999","#ccc","#eee","#f3f3f3","#fff"],
-      ["#f00","#f90","#ff0","#0f0","#0ff","#00f","#90f","#f0f"],
-      ["#f4cccc","#fce5cd","#fff2cc","#d9ead3","#d0e0e3","#cfe2f3","#d9d2e9","#ead1dc"],
-      ["#ea9999","#f9cb9c","#ffe599","#b6d7a8","#a2c4c9","#9fc5e8","#b4a7d6","#d5a6bd"],
-      ["#e06666","#f6b26b","#ffd966","#93c47d","#76a5af","#6fa8dc","#8e7cc3","#c27ba0"]
-    ],
-    move: function(color) {
-      if (color) {
-        const hexValue = color.toHexString().toUpperCase();
-        picker.value = hexValue;
-        textInput.value = hexValue;
-        
-        // Déclencher l'événement pour la prévisualisation
-        const event = new Event('spectrum-move', { bubbles: true });
-        event.color = hexValue;
-        textInput.dispatchEvent(event);
-      }
-    },
-    change: function(color) {
-      if (color) {
-        const hexValue = color.toHexString().toUpperCase();
-        textInput.value = hexValue;
-        picker.value = hexValue;
-        console.log('[CentralAdmin] Couleur changée:', hexValue);
-        
-        // Déclencher l'événement pour la prévisualisation
-        const event = new Event('spectrum-change', { bubbles: true });
-        event.color = hexValue;
-        textInput.dispatchEvent(event);
-      }
+    COLOR PICKERS AVEC SPECTRUM
+    ================================================ */
+  function initColorPickers() {
+    // Vérifier que Spectrum est chargé
+    if (typeof jQuery === 'undefined' || typeof jQuery.fn.spectrum === 'undefined') {
+      console.error('[CentralAdmin] Spectrum non disponible');
+      return;
     }
-  });
 
-  console.log('[CentralAdmin] Color pickers initialisés:', initCount);
+    const colorInputs = document.querySelectorAll('.ca-color-input');
+    let initCount = 0;
+    
+    colorInputs.forEach(input => {
+      if (!input || input.disabled) return;
+      
+      // Initialiser Spectrum directement sur l'input texte
+      jQuery(input).spectrum({
+        color: input.value || '#000000',
+        showInput: true,
+        showInitial: true,
+        showPalette: true,
+        clickoutFiresChange: true,
+        preferredFormat: "hex",
+        showAlpha: false, // Désactiver le canal alpha pour forcer hexa pur
+        allowEmpty: false,
+        disabled: input.disabled,
+        palette: [
+          ["#000","#444","#666","#999","#ccc","#eee","#f3f3f3","#fff"],
+          ["#f00","#f90","#ff0","#0f0","#0ff","#00f","#90f","#f0f"],
+          ["#f4cccc","#fce5cd","#fff2cc","#d9ead3","#d0e0e3","#cfe2f3","#d9d2e9","#ead1dc"],
+          ["#ea9999","#f9cb9c","#ffe599","#b6d7a8","#a2c4c9","#9fc5e8","#b4a7d6","#d5a6bd"],
+          ["#e06666","#f6b26b","#ffd966","#93c47d","#76a5af","#6fa8dc","#8e7cc3","#c27ba0"]
+        ],
+        move: function(color) {
+          // Prévisualisation temps réel
+          jQuery(input).trigger('color-preview', [color.toHexString()]);
+        },
+        change: function(color) {
+          // Changement validé
+          input.value = color.toHexString().toUpperCase();
+          jQuery(input).trigger('color-change', [color.toHexString()]);
+        }
+      });
+      
+      initCount++;
+    });
+    
+    console.log('[CentralAdmin] Spectrum initialisé sur', initCount, 'inputs');
+  }
+
+  /* ================================================
+    MODALE CRÉDITS
+    ================================================ */
+  function initCreditsModal() {
+    const creditsLink = document.getElementById('ca-credits-link');
+    if (!creditsLink) return;
+    
+    creditsLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Utiliser le système de modale Piwigo (jQuery UI Dialog)
+      if (typeof jQuery !== 'undefined' && jQuery.fn.dialog) {
+        jQuery.ajax({
+          url: 'plugins/centralAdmin/credentials.html',
+          success: function(html) {
+            jQuery('<div>').html(html).dialog({
+              title: 'Crédits - centralAdmin',
+              width: 750,
+              height: 600,
+              modal: true,
+              buttons: {
+                'Fermer': function() {
+                  jQuery(this).dialog('close');
+                }
+              }
+            });
+          },
+          error: function() {
+            alert('Impossible de charger les crédits.');
+          }
+        });
+      } else {
+        // Fallback : nouvelle fenêtre
+        window.open('plugins/centralAdmin/credentials.html', 'credits', 'width=750,height=600');
+      }
+    });
+  }
 
 })();
