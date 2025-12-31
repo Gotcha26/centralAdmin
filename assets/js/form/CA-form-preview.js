@@ -161,62 +161,35 @@ function initColorPreview() {
     }
   });
 
-  // ===== CLEAR COLORS =====
-  const clearColors = [
-    'bg_global',
-    'bg_content2',
-    'bg_content1',
-    'bg_content3'
-  ];
+  // ===== CLEAR & DARK COLORS (Unified Section) =====
+  const allColors = ['bg_global', 'bg_content2', 'bg_content1', 'bg_content3'];
+  const schemes = ['clear', 'dark'];
 
-  clearColors.forEach(colorName => {
-    const fullId = 'bg_clear_' + colorName;  // Ex: 'bg_clear_global'
-    const textInput = document.getElementById(fullId + '_text');
-    const colorPicker = document.getElementById(fullId + '_picker');
-    
-    // La variable CSS ne contient pas le préfixe 'clear' !
-    const cssVar = '--ca-color-' + colorName.replace(/_/g, '-');  // Ex: '--ca-color-bg-global'
-    
-    if (textInput) {
-      console.log('[Preview] ✅ Clear color trouvé:', fullId);
+  schemes.forEach(scheme => {
+    allColors.forEach(colorName => {
+      const colorSuffix = colorName.replace('bg_', '');
+      const fullId = 'bg_' + scheme + '_' + colorSuffix;
+      const textInput = document.getElementById(fullId + '_text');
       
-      textInput.addEventListener('color-change', function(e) {
-        const hexValue = e.detail.color;
-        updateCSSVariable(cssVar, hexValue);
-        console.log('[Preview] Couleur clear mise à jour:', colorName, '=', hexValue);
-      });
-    } else {
-      console.warn('[Preview] ❌ Clear color non trouvé:', fullId);
-    }
-  });
-
-  // ===== DARK COLORS =====
-  const darkColors = [
-    'bg_global',
-    'bg_content2',
-    'bg_content1',
-    'bg_content3'
-  ];
-
-  darkColors.forEach(colorName => {
-    const fullId = 'bg_dark_' + colorName;  // Ex: 'bg_dark_global'
-    const textInput = document.getElementById(fullId + '_text');
-    const colorPicker = document.getElementById(fullId + '_picker');
-    
-    // La variable CSS ne contient pas le préfixe 'dark' !
-    const cssVar = '--ca-color-' + colorName.replace(/_/g, '-');  // Ex: '--ca-color-bg-global'
-    
-    if (textInput) {
-      console.log('[Preview] ✅ Dark color trouvé:', fullId);
+      const cssVar = '--ca-color-' + colorName.replace(/_/g, '-');
       
-      textInput.addEventListener('color-change', function(e) {
-        const hexValue = e.detail.color;
-        updateCSSVariable(cssVar, hexValue);
-        console.log('[Preview] Couleur dark mise à jour:', colorName, '=', hexValue);
-      });
-    } else {
-      console.warn('[Preview] ❌ Dark color non trouvé:', fullId);
-    }
+      if (textInput) {
+        console.log('[Preview] ✅ Color trouvé:', fullId, '→ CSS var:', cssVar);
+        
+        // Ne mettre à jour que si le champ n'est pas désactivé (thème actif)
+        textInput.addEventListener('color-change', function(e) {
+          if (!textInput.disabled) {
+            const hexValue = e.detail.color;
+            updateCSSVariable(cssVar, hexValue);
+            console.log('[Preview] Couleur mise à jour:', colorName, '=', hexValue);
+          } else {
+            console.log('[Preview] ⏭️  Changement ignoré (thème inactif):', fullId);
+          }
+        });
+      } else {
+        console.warn('[Preview] ❌ Color non trouvé:', fullId);
+      }
+    });
   });
   
   console.log('[CentralAdmin Preview] ✅ Prévisualisation couleurs initialisée');

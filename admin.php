@@ -175,6 +175,7 @@ $CA_FORM_THEMES_CSS = ca_asset($css_form_path . 'CA-form-themes.css');
 $css_modules_path = $assets_path . 'css/modules/';
 $CA_DEBUG_CSS = ca_asset($css_modules_path . 'CA-debug.css');
 $CA_MODAL_CSS = ca_asset($css_modules_path . 'CA-modal.css');
+$CA_COLORS_UNIFIED_CSS = ca_asset($css_modules_path . 'CA-colors-unified.css');
 
 // JS Core
 $js_core_path = $assets_path . 'js/core/';
@@ -237,6 +238,7 @@ $template->assign(array(
     // CSS - Modules
     'CA_DEBUG_CSS' => $CA_DEBUG_CSS,
     'CA_MODAL_CSS' => $CA_MODAL_CSS,
+    'CA_COLORS_UNIFIED_CSS' => $CA_COLORS_UNIFIED_CSS,
 
     // JS - Core
     'CA_INIT_JS' => $CA_INIT_JS,
@@ -254,8 +256,7 @@ $template->assign(array(
     // Templates sections
     'LAYOUT_SECTION_TPL' => dirname(__FILE__) . '/sections/layout.tpl',
     'TOOLTIPS_SECTION_TPL' => dirname(__FILE__) . '/sections/tooltips.tpl',
-    'COLORS_CLEAR_SECTION_TPL' => dirname(__FILE__) . '/sections/colors_clear.tpl',
-    'COLORS_DARK_SECTION_TPL' => dirname(__FILE__) . '/sections/colors_dark.tpl',
+    'COLORS_UNIFIED_SECTION_TPL' => dirname(__FILE__) . '/sections/colors_unified.tpl',
 
     // CSS dynamique
     'dynamic_css' => $dynamicCSS,
