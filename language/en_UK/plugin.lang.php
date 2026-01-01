@@ -147,3 +147,11 @@ $lang['version_number'] = 'Version';
 $lang['jquery_not_loaded'] = 'jQuery not loaded';
 $lang['jquery_confirm_available'] = 'jQuery Confirm available';
 $lang['credits_loading_error'] = 'Unable to load credits';
+
+// == REORGANIZED SECTIONS ==
+$lang['central_admin_general'] = 'General';
+$lang['central_admin_messages_colors'] = 'Message Colors';
+$lang['central_admin_advanced_params'] = 'Advanced Parameters';
+
+// == ADVANCED WARNING ==
+$lang['advanced_params_warning'] = 'These parameters are intended for advanced users. Incorrect values may alter the interface display. Use the locks to modify these parameters.';

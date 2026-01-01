@@ -143,21 +143,32 @@ function initColorPreview() {
   ];
 
   tooltipColors.forEach(colorName => {
-    const textInput = document.getElementById(colorName + '_text');
-    const colorPicker = document.getElementById(colorName + '_picker');
-    
-    if (textInput) {
-      console.log('[Preview] ✅ Tooltip color trouvé:', colorName);
-      
-      // Écouter l'événement color-change (déclenché par CA-form-colors.js)
-      textInput.addEventListener('color-change', function(e) {
-        const hexValue = e.detail.color;
-        const cssVar = '--ca-color-' + colorName.replace(/_/g, '-');
-        updateCSSVariable(cssVar, hexValue);
-        console.log('[Preview] Couleur tooltip mise à jour:', colorName, '=', hexValue);
+    // Pour thème Clear
+    const clearTextInput = document.getElementById(colorName + '_clear_text');
+    if (clearTextInput) {
+      console.log('[Preview] ✅ Tooltip color CLEAR trouvé:', colorName);
+      clearTextInput.addEventListener('color-change', function(e) {
+        if (!clearTextInput.disabled) {
+          const hexValue = e.detail.color;
+          const cssVar = '--ca-color-' + colorName.replace(/_/g, '-');
+          updateCSSVariable(cssVar, hexValue);
+          console.log('[Preview] Couleur tooltip mise à jour:', colorName, '=', hexValue);
+        }
       });
-    } else {
-      console.warn('[Preview] ❌ Tooltip color non trouvé:', colorName);
+    }
+
+    // Pour thème Dark
+    const darkTextInput = document.getElementById(colorName + '_dark_text');
+    if (darkTextInput) {
+      console.log('[Preview] ✅ Tooltip color DARK trouvé:', colorName);
+      darkTextInput.addEventListener('color-change', function(e) {
+        if (!darkTextInput.disabled) {
+          const hexValue = e.detail.color;
+          const cssVar = '--ca-color-' + colorName.replace(/_/g, '-');
+          updateCSSVariable(cssVar, hexValue);
+          console.log('[Preview] Couleur tooltip mise à jour:', colorName, '=', hexValue);
+        }
+      });
     }
   });
 

@@ -194,3 +194,11 @@ $lang['version_number'] = 'Version';
 $lang['jquery_not_loaded'] = 'jQuery non chargé';
 $lang['jquery_confirm_available'] = 'jQuery Confirm disponible';
 $lang['credits_loading_error'] = 'Impossible de charger les crédits';
+
+// == SECTIONS RÉORGANISÉES ==
+$lang['central_admin_general'] = 'Général';
+$lang['central_admin_messages_colors'] = 'Couleurs des messages';
+$lang['central_admin_advanced_params'] = 'Paramètres avancés';
+
+// == AVERTISSEMENT AVANCÉS ==
+$lang['advanced_params_warning'] = 'Ces paramètres sont destinés aux utilisateurs avancés. Des valeurs incorrectes peuvent altérer l\'affichage de l\'interface. Utilisez les verrous pour modifier ces paramètres.';

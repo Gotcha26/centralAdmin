@@ -254,9 +254,10 @@ $template->assign(array(
     'CA_MODAL_JS' => $CA_MODAL_JS,
 
     // Templates sections
-    'LAYOUT_SECTION_TPL' => dirname(__FILE__) . '/sections/layout.tpl',
-    'TOOLTIPS_SECTION_TPL' => dirname(__FILE__) . '/sections/tooltips.tpl',
+    'LAYOUT_SECTION_TPL' => dirname(__FILE__) . '/sections/layout_simplified.tpl',
+    'TOOLTIPS_UNIFIED_SECTION_TPL' => dirname(__FILE__) . '/sections/tooltips_unified.tpl',
     'COLORS_UNIFIED_SECTION_TPL' => dirname(__FILE__) . '/sections/colors_unified.tpl',
+    'ADVANCED_PARAMS_SECTION_TPL' => dirname(__FILE__) . '/sections/advanced_params.tpl',
 
     // CSS dynamique
     'dynamic_css' => $dynamicCSS,
