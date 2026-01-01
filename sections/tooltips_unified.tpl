@@ -75,7 +75,7 @@
         </div>
 
         {* Couleurs tooltips Clear *}
-        
+
         {* infos_main_color *}
         <div class="ca-field">
           <div class="ca-field-header">
@@ -93,18 +93,18 @@
           <div class="ca-field-controls ca-field-controls-color">
             <div class="ca-color-picker-wrapper">
               <input type="color" 
-                     class="ca-color-picker"
-                     id="infos_main_color_clear_picker"
-                     value="{$centralAdmin.colors.tooltips.infos_main_color}"
-                     {if $current_scheme != 'clear'}disabled{/if}>
+                    class="ca-color-picker"
+                    id="infos_main_color_clear_picker"
+                    value="{$centralAdmin.colors.clear.infos_main_color}"
+                    {if $current_scheme != 'clear'}disabled{/if}>
               <input type="text" 
-                     class="ca-color-input"
-                     id="infos_main_color_clear_text"
-                     name="colors[tooltips][infos_main_color]"
-                     value="{$centralAdmin.colors.tooltips.infos_main_color}"
-                     pattern="^#[0-9A-Fa-f]{literal}{{/literal}6{literal}}{/literal}$"
-                     maxlength="7"
-                     {if $current_scheme != 'clear'}disabled{/if}>
+                    class="ca-color-input"
+                    id="infos_main_color_clear_text"
+                    name="colors[clear][infos_main_color]"
+                    value="{$centralAdmin.colors.clear.infos_main_color}"
+                    pattern="^#[0-9A-Fa-f]{literal}{{/literal}6{literal}}{/literal}$"
+                    maxlength="7"
+                    {if $current_scheme != 'clear'}disabled{/if}>
             </div>
           </div>
         </div>
@@ -126,18 +126,18 @@
           <div class="ca-field-controls ca-field-controls-color">
             <div class="ca-color-picker-wrapper">
               <input type="color" 
-                     class="ca-color-picker"
-                     id="warning_main_color_clear_picker"
-                     value="{$centralAdmin.colors.tooltips.warning_main_color}"
-                     {if $current_scheme != 'clear'}disabled{/if}>
+                    class="ca-color-picker"
+                    id="warning_main_color_clear_picker"
+                    value="{$centralAdmin.colors.clear.warning_main_color}"
+                    {if $current_scheme != 'clear'}disabled{/if}>
               <input type="text" 
-                     class="ca-color-input"
-                     id="warning_main_color_clear_text"
-                     name="colors[tooltips][warning_main_color]"
-                     value="{$centralAdmin.colors.tooltips.warning_main_color}"
-                     pattern="^#[0-9A-Fa-f]{literal}{{/literal}6{literal}}{/literal}$"
-                     maxlength="7"
-                     {if $current_scheme != 'clear'}disabled{/if}>
+                    class="ca-color-input"
+                    id="warning_main_color_clear_text"
+                    name="colors[clear][warning_main_color]"
+                    value="{$centralAdmin.colors.clear.warning_main_color}"
+                    pattern="^#[0-9A-Fa-f]{literal}{{/literal}6{literal}}{/literal}$"
+                    maxlength="7"
+                    {if $current_scheme != 'clear'}disabled{/if}>
             </div>
           </div>
         </div>
@@ -159,18 +159,18 @@
           <div class="ca-field-controls ca-field-controls-color">
             <div class="ca-color-picker-wrapper">
               <input type="color" 
-                     class="ca-color-picker"
-                     id="messages_main_color_clear_picker"
-                     value="{$centralAdmin.colors.tooltips.messages_main_color}"
-                     {if $current_scheme != 'clear'}disabled{/if}>
+                    class="ca-color-picker"
+                    id="messages_main_color_clear_picker"
+                    value="{$centralAdmin.colors.clear.messages_main_color}"
+                    {if $current_scheme != 'clear'}disabled{/if}>
               <input type="text" 
-                     class="ca-color-input"
-                     id="messages_main_color_clear_text"
-                     name="colors[tooltips][messages_main_color]"
-                     value="{$centralAdmin.colors.tooltips.messages_main_color}"
-                     pattern="^#[0-9A-Fa-f]{literal}{{/literal}6{literal}}{/literal}$"
-                     maxlength="7"
-                     {if $current_scheme != 'clear'}disabled{/if}>
+                    class="ca-color-input"
+                    id="messages_main_color_clear_text"
+                    name="colors[clear][messages_main_color]"
+                    value="{$centralAdmin.colors.clear.messages_main_color}"
+                    pattern="^#[0-9A-Fa-f]{literal}{{/literal}6{literal}}{/literal}$"
+                    maxlength="7"
+                    {if $current_scheme != 'clear'}disabled{/if}>
             </div>
           </div>
         </div>
@@ -192,23 +192,23 @@
           <div class="ca-field-controls ca-field-controls-color">
             <div class="ca-color-picker-wrapper">
               <input type="color" 
-                     class="ca-color-picker"
-                     id="error_main_color_clear_picker"
-                     value="{$centralAdmin.colors.tooltips.error_main_color}"
-                     {if $current_scheme != 'clear'}disabled{/if}>
+                    class="ca-color-picker"
+                    id="error_main_color_clear_picker"
+                    value="{$centralAdmin.colors.clear.error_main_color}"
+                    {if $current_scheme != 'clear'}disabled{/if}>
               <input type="text" 
-                     class="ca-color-input"
-                     id="error_main_color_clear_text"
-                     name="colors[tooltips][error_main_color]"
-                     value="{$centralAdmin.colors.tooltips.error_main_color}"
-                     pattern="^#[0-9A-Fa-f]{literal}{{/literal}6{literal}}{/literal}$"
-                     maxlength="7"
-                     {if $current_scheme != 'clear'}disabled{/if}>
+                    class="ca-color-input"
+                    id="error_main_color_clear_text"
+                    name="colors[clear][error_main_color]"
+                    value="{$centralAdmin.colors.clear.error_main_color}"
+                    pattern="^#[0-9A-Fa-f]{literal}{{/literal}6{literal}}{/literal}$"
+                    maxlength="7"
+                    {if $current_scheme != 'clear'}disabled{/if}>
             </div>
           </div>
         </div>
 
-      </div>
+      </div>  {* ← FIN COLONNE CLEAR *}
 
       {* ========================================
          COLONNE DROITE - THÈME SOMBRE
@@ -225,7 +225,7 @@
         </div>
 
         {* Couleurs tooltips Dark *}
-        
+
         {* infos_main_color *}
         <div class="ca-field">
           <div class="ca-field-header">
@@ -243,18 +243,18 @@
           <div class="ca-field-controls ca-field-controls-color">
             <div class="ca-color-picker-wrapper">
               <input type="color" 
-                     class="ca-color-picker"
-                     id="infos_main_color_dark_picker"
-                     value="{$centralAdmin.colors.tooltips.infos_main_color}"
-                     {if $current_scheme != 'dark'}disabled{/if}>
+                    class="ca-color-picker"
+                    id="infos_main_color_dark_picker"
+                    value="{$centralAdmin.colors.dark.infos_main_color}"
+                    {if $current_scheme != 'dark'}disabled{/if}>
               <input type="text" 
-                     class="ca-color-input"
-                     id="infos_main_color_dark_text"
-                     name="colors[tooltips][infos_main_color]"
-                     value="{$centralAdmin.colors.tooltips.infos_main_color}"
-                     pattern="^#[0-9A-Fa-f]{literal}{{/literal}6{literal}}{/literal}$"
-                     maxlength="7"
-                     {if $current_scheme != 'dark'}disabled{/if}>
+                    class="ca-color-input"
+                    id="infos_main_color_dark_text"
+                    name="colors[dark][infos_main_color]"
+                    value="{$centralAdmin.colors.dark.infos_main_color}"
+                    pattern="^#[0-9A-Fa-f]{literal}{{/literal}6{literal}}{/literal}$"
+                    maxlength="7"
+                    {if $current_scheme != 'dark'}disabled{/if}>
             </div>
           </div>
         </div>
@@ -276,18 +276,18 @@
           <div class="ca-field-controls ca-field-controls-color">
             <div class="ca-color-picker-wrapper">
               <input type="color" 
-                     class="ca-color-picker"
-                     id="warning_main_color_dark_picker"
-                     value="{$centralAdmin.colors.tooltips.warning_main_color}"
-                     {if $current_scheme != 'dark'}disabled{/if}>
+                    class="ca-color-picker"
+                    id="warning_main_color_dark_picker"
+                    value="{$centralAdmin.colors.dark.warning_main_color}"
+                    {if $current_scheme != 'dark'}disabled{/if}>
               <input type="text" 
-                     class="ca-color-input"
-                     id="warning_main_color_dark_text"
-                     name="colors[tooltips][warning_main_color]"
-                     value="{$centralAdmin.colors.tooltips.warning_main_color}"
-                     pattern="^#[0-9A-Fa-f]{literal}{{/literal}6{literal}}{/literal}$"
-                     maxlength="7"
-                     {if $current_scheme != 'dark'}disabled{/if}>
+                    class="ca-color-input"
+                    id="warning_main_color_dark_text"
+                    name="colors[dark][warning_main_color]"
+                    value="{$centralAdmin.colors.dark.warning_main_color}"
+                    pattern="^#[0-9A-Fa-f]{literal}{{/literal}6{literal}}{/literal}$"
+                    maxlength="7"
+                    {if $current_scheme != 'dark'}disabled{/if}>
             </div>
           </div>
         </div>
@@ -309,18 +309,18 @@
           <div class="ca-field-controls ca-field-controls-color">
             <div class="ca-color-picker-wrapper">
               <input type="color" 
-                     class="ca-color-picker"
-                     id="messages_main_color_dark_picker"
-                     value="{$centralAdmin.colors.tooltips.messages_main_color}"
-                     {if $current_scheme != 'dark'}disabled{/if}>
+                    class="ca-color-picker"
+                    id="messages_main_color_dark_picker"
+                    value="{$centralAdmin.colors.dark.messages_main_color}"
+                    {if $current_scheme != 'dark'}disabled{/if}>
               <input type="text" 
-                     class="ca-color-input"
-                     id="messages_main_color_dark_text"
-                     name="colors[tooltips][messages_main_color]"
-                     value="{$centralAdmin.colors.tooltips.messages_main_color}"
-                     pattern="^#[0-9A-Fa-f]{literal}{{/literal}6{literal}}{/literal}$"
-                     maxlength="7"
-                     {if $current_scheme != 'dark'}disabled{/if}>
+                    class="ca-color-input"
+                    id="messages_main_color_dark_text"
+                    name="colors[dark][messages_main_color]"
+                    value="{$centralAdmin.colors.dark.messages_main_color}"
+                    pattern="^#[0-9A-Fa-f]{literal}{{/literal}6{literal}}{/literal}$"
+                    maxlength="7"
+                    {if $current_scheme != 'dark'}disabled{/if}>
             </div>
           </div>
         </div>
@@ -342,24 +342,24 @@
           <div class="ca-field-controls ca-field-controls-color">
             <div class="ca-color-picker-wrapper">
               <input type="color" 
-                     class="ca-color-picker"
-                     id="error_main_color_dark_picker"
-                     value="{$centralAdmin.colors.tooltips.error_main_color}"
-                     {if $current_scheme != 'dark'}disabled{/if}>
+                    class="ca-color-picker"
+                    id="error_main_color_dark_picker"
+                    value="{$centralAdmin.colors.dark.error_main_color}"
+                    {if $current_scheme != 'dark'}disabled{/if}>
               <input type="text" 
-                     class="ca-color-input"
-                     id="error_main_color_dark_text"
-                     name="colors[tooltips][error_main_color]"
-                     value="{$centralAdmin.colors.tooltips.error_main_color}"
-                     pattern="^#[0-9A-Fa-f]{literal}{{/literal}6{literal}}{/literal}$"
-                     maxlength="7"
-                     {if $current_scheme != 'dark'}disabled{/if}>
+                    class="ca-color-input"
+                    id="error_main_color_dark_text"
+                    name="colors[dark][error_main_color]"
+                    value="{$centralAdmin.colors.dark.error_main_color}"
+                    pattern="^#[0-9A-Fa-f]{literal}{{/literal}6{literal}}{/literal}$"
+                    maxlength="7"
+                    {if $current_scheme != 'dark'}disabled{/if}>
             </div>
           </div>
         </div>
 
-      </div>
+      </div>  {* ← FIN COLONNE DARK *}
 
-    </div>
-  </div>
-</div>
+    </div>  {* ← FIN ca-colors-grid *}
+  </div>  {* ← FIN ca-section-content *}
+</div>  {* ← FIN ca-section *}

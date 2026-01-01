@@ -128,84 +128,92 @@
     }
   }
 
-/* ================================================
-   PRÉVISUALISATION COULEURS
-   ================================================ */
-function initColorPreview() {
-  console.log('[CentralAdmin Preview] Initialisation preview couleurs...');
-  
-  // ===== TOOLTIPS COLORS (commun aux deux schémas) =====
-  const tooltipColors = [
-    'infos_main_color',
-    'warning_main_color',
-    'messages_main_color',
-    'error_main_color'
-  ];
+  /* ================================================
+    PRÉVISUALISATION COULEURS
+    ================================================ */
+  function initColorPreview() {
+    console.log('[CentralAdmin Preview] Initialisation preview couleurs...');
+    
+    // ===== CLEAR COLORS (backgrounds + tooltips) =====
+    const clearColors = [
+      'bg_global',
+      'bg_content2',
+      'bg_content1',
+      'bg_content3',
+      'infos_main_color',
+      'warning_main_color',
+      'messages_main_color',
+      'error_main_color'
+    ];
 
-  tooltipColors.forEach(colorName => {
-    // Pour thème Clear
-    const clearTextInput = document.getElementById(colorName + '_clear_text');
-    if (clearTextInput) {
-      console.log('[Preview] ✅ Tooltip color CLEAR trouvé:', colorName);
-      clearTextInput.addEventListener('color-change', function(e) {
-        if (!clearTextInput.disabled) {
-          const hexValue = e.detail.color;
-          const cssVar = '--ca-color-' + colorName.replace(/_/g, '-');
-          updateCSSVariable(cssVar, hexValue);
-          console.log('[Preview] Couleur tooltip mise à jour:', colorName, '=', hexValue);
-        }
-      });
-    }
-
-    // Pour thème Dark
-    const darkTextInput = document.getElementById(colorName + '_dark_text');
-    if (darkTextInput) {
-      console.log('[Preview] ✅ Tooltip color DARK trouvé:', colorName);
-      darkTextInput.addEventListener('color-change', function(e) {
-        if (!darkTextInput.disabled) {
-          const hexValue = e.detail.color;
-          const cssVar = '--ca-color-' + colorName.replace(/_/g, '-');
-          updateCSSVariable(cssVar, hexValue);
-          console.log('[Preview] Couleur tooltip mise à jour:', colorName, '=', hexValue);
-        }
-      });
-    }
-  });
-
-  // ===== CLEAR & DARK COLORS (Unified Section) =====
-  const allColors = ['bg_global', 'bg_content2', 'bg_content1', 'bg_content3'];
-  const schemes = ['clear', 'dark'];
-
-  schemes.forEach(scheme => {
-    allColors.forEach(colorName => {
+    clearColors.forEach(colorName => {
       const colorSuffix = colorName.replace('bg_', '');
-      const fullId = 'bg_' + scheme + '_' + colorSuffix;
-      const textInput = document.getElementById(fullId + '_text');
+      const fullId = 'bg_clear_' + colorSuffix;
       
+      // Pour les tooltips, l'ID est différent
+      const inputId = colorName.startsWith('bg_') 
+        ? fullId 
+        : colorName + '_clear';
+      
+      const textInput = document.getElementById(inputId + '_text');
       const cssVar = '--ca-color-' + colorName.replace(/_/g, '-');
       
       if (textInput) {
-        console.log('[Preview] ✅ Color trouvé:', fullId, '→ CSS var:', cssVar);
+        console.log('[Preview] ✅ Clear color trouvé:', inputId, '→ CSS var:', cssVar);
         
-        // Ne mettre à jour que si le champ n'est pas désactivé (thème actif)
         textInput.addEventListener('color-change', function(e) {
           if (!textInput.disabled) {
             const hexValue = e.detail.color;
             updateCSSVariable(cssVar, hexValue);
-            console.log('[Preview] Couleur mise à jour:', colorName, '=', hexValue);
-          } else {
-            console.log('[Preview] ⏭️  Changement ignoré (thème inactif):', fullId);
+            console.log('[Preview] Couleur clear mise à jour:', colorName, '=', hexValue);
           }
         });
       } else {
-        console.warn('[Preview] ❌ Color non trouvé:', fullId);
+        console.warn('[Preview] ❌ Clear color non trouvé:', inputId);
       }
     });
-  });
-  
-  console.log('[CentralAdmin Preview] ✅ Prévisualisation couleurs initialisée');
-}
 
+    // ===== DARK COLORS (backgrounds + tooltips) =====
+    const darkColors = [
+      'bg_global',
+      'bg_content2',
+      'bg_content1',
+      'bg_content3',
+      'infos_main_color',
+      'warning_main_color',
+      'messages_main_color',
+      'error_main_color'
+    ];
+
+    darkColors.forEach(colorName => {
+      const colorSuffix = colorName.replace('bg_', '');
+      const fullId = 'bg_dark_' + colorSuffix;
+      
+      // Pour les tooltips, l'ID est différent
+      const inputId = colorName.startsWith('bg_') 
+        ? fullId 
+        : colorName + '_dark';
+      
+      const textInput = document.getElementById(inputId + '_text');
+      const cssVar = '--ca-color-' + colorName.replace(/_/g, '-');
+      
+      if (textInput) {
+        console.log('[Preview] ✅ Dark color trouvé:', inputId, '→ CSS var:', cssVar);
+        
+        textInput.addEventListener('color-change', function(e) {
+          if (!textInput.disabled) {
+            const hexValue = e.detail.color;
+            updateCSSVariable(cssVar, hexValue);
+            console.log('[Preview] Couleur dark mise à jour:', colorName, '=', hexValue);
+          }
+        });
+      } else {
+        console.warn('[Preview] ❌ Dark color non trouvé:', inputId);
+      }
+    });
+    
+    console.log('[CentralAdmin Preview] ✅ Prévisualisation couleurs initialisée');
+  }
   /* ================================================
     MISE À JOUR VARIABLE CSS
     ================================================ */
