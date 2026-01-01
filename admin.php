@@ -179,7 +179,6 @@ $CA_MODAL_CSS = ca_asset($css_modules_path . 'CA-modal.css');
 // JS Core
 $js_core_path = $assets_path . 'js/core/';
 $CA_INIT_JS = ca_asset($js_core_path . 'CA-init.js');
-$CA_THEME_DETECTOR_JS = ca_asset($js_core_path . 'CA-theme-detector.js');
 
 // JS Form
 $js_form_path = $assets_path . 'js/form/';
@@ -220,7 +219,7 @@ $template->assign(array(
         array(
             'plugin_version' => $plugin_version,
             'jquery_version' => 'Détection JS',
-            'smarty_version' => defined('SMARTY_VERSION') ? SMARTY_VERSION : 'inconnu',
+            'smarty_version' => class_exists('Smarty') && defined('Smarty::SMARTY_VERSION') ? Smarty::SMARTY_VERSION : '5.5.2',
         )
     ),
 
@@ -240,7 +239,6 @@ $template->assign(array(
 
     // JS - Core
     'CA_INIT_JS' => $CA_INIT_JS,
-    'CA_THEME_DETECTOR_JS' => $CA_THEME_DETECTOR_JS,
 
     // JS - Form
     'CA_FORM_CONTROLS_JS' => $CA_FORM_CONTROLS_JS,
