@@ -19,7 +19,8 @@ const CSS_FILES = [
   'form/CA-form-base.css',
   'form/CA-form-components.css',
   'modules/CA-debug.css',
-  'modules/CA-modal.css'
+  'modules/CA-modal.css',
+  'modules/CA-colors-unified.css'
 ];
 
 const JS_FILES = [

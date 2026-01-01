@@ -19,6 +19,7 @@ if (document.getElementById('central-admin-vars-preview')) {
 {* === CSS CORE === *}
 <link rel="stylesheet" href="{$CA_ADMIN_LAYOUT_CSS}">
 <link rel="stylesheet" href="{$CA_ADMIN_OVERRIDE_CSS}">
+<link rel="stylesheet" href="{$CA_COLORS_UNIFIED_CSS}">
 
 {* === CSS FORM === *}
 <link rel="stylesheet" href="{$CA_FORM_BASE_CSS}">
@@ -74,23 +75,19 @@ if (document.getElementById('central-admin-vars-preview')) {
 
   <form method="post" class="ca-form" id="centralAdminForm">
     
-    {* Section Layout *}
+    {* 1. Section Général (layout simplifié) *}
     {include file=$LAYOUT_SECTION_TPL}
     
-    {* Section Tooltips *}
-    {include file=$TOOLTIPS_SECTION_TPL}
+    {* 2. Section Couleurs du Thème (clear & dark unifiés) *}
+    {include file=$COLORS_UNIFIED_SECTION_TPL}
     
-    {* Section Couleurs (Clear) *}
-    {if $current_scheme == 'clear'}
-      {include file=$COLORS_CLEAR_SECTION_TPL}
-    {/if}
+    {* 3. Section Couleurs des Messages (tooltips unifiés) *}
+    {include file=$TOOLTIPS_UNIFIED_SECTION_TPL}
     
-    {* Section Couleurs (Dark) *}
-    {if $current_scheme == 'dark'}
-      {include file=$COLORS_DARK_SECTION_TPL}
-    {/if}
+    {* 4. Section Paramètres Avancés *}
+    {include file=$ADVANCED_PARAMS_SECTION_TPL}
 
-    {* SECTION DEBUG - Accordion replié par défaut *}
+    {* 5. SECTION DEBUG - Accordion replié par défaut *}
     <div class="ca-section" data-section="debug">
       <div class="ca-section-header">
         <h3 class="ca-section-title">
@@ -225,6 +222,7 @@ if (document.getElementById('central-admin-vars-preview')) {
       </button>
     </div>
   </form>
+  
 </div>
 
 {* === JAVASCRIPT - Ordre d'exécution important === *}

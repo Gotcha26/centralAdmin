@@ -33,7 +33,6 @@ class CA_CSSGenerator {
     public function generate($config, $scheme = 'clear') {
         $css = ":root {\n";
         $css .= $this->generateLayout($config['layout'] ?? array());
-        $css .= $this->generateTooltips($config['colors']['tooltips'] ?? array());
         $css .= $this->generateSchemeColors($config, $scheme);
         $css .= "}\n";
         
@@ -64,24 +63,7 @@ class CA_CSSGenerator {
         
         return $css;
     }
-    
-    /**
-     * Génère les variables CSS pour les tooltips (commun aux schémas)
-     * 
-     * @param array $tooltips Configuration tooltips
-     * @return string CSS généré
-     */
-    private function generateTooltips($tooltips) {
-        $css = "\n" . $this->indent . "/* Tooltips (commun) */\n";
         
-        foreach ($tooltips as $key => $value) {
-            $varName = $this->prefix . 'color-' . str_replace('_', '-', $key);
-            $css .= $this->indent . $varName . ': ' . $this->sanitizeColor($value) . ";\n";
-        }
-        
-        return $css;
-    }
-    
     /**
      * Génère les variables CSS pour les couleurs du schéma actif
      * 
