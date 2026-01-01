@@ -87,6 +87,11 @@ if (document.getElementById('central-admin-vars-preview')) {
     {* 4. Section Paramètres Avancés *}
     {include file=$ADVANCED_PARAMS_SECTION_TPL}
 
+    {* SECTION DEBUG - Accordion replié par défaut *}
+    {* ================================================
+      SECTION DEBUG SIMPLIFIÉE v3.1.0
+      ================================================ *}
+
     {* 5. SECTION DEBUG - Accordion replié par défaut *}
     <div class="ca-section" data-section="debug">
       <div class="ca-section-header">
@@ -102,7 +107,9 @@ if (document.getElementById('central-admin-vars-preview')) {
       <div class="ca-section-content" style="display: none;">
         <div class="ca-debug-info">
           
-          {* VERSIONS *}
+          {* ========================================
+            SECTION 1 : VERSIONS DES COMPOSANTS
+            ======================================== *}
           <h4>{'versions'|@translate}</h4>
           <table class="ca-debug-table">
             <tr>
@@ -123,7 +130,9 @@ if (document.getElementById('central-admin-vars-preview')) {
             </tr>
           </table>
           
-          {* DÉTECTION THÈME PHP *}
+          {* ========================================
+            SECTION 2 : DÉTECTION THÈME PHP
+            ======================================== *}
           <h4 style="margin-top: 20px;">{'theme_detection_php'|@translate}</h4>
           <table class="ca-debug-table">
             <tr>
@@ -142,64 +151,54 @@ if (document.getElementById('central-admin-vars-preview')) {
               <td><strong>{'theme_applied'|@translate}</strong></td>
               <td><span class="ca-debug-value">{$theme_debug.theme_final}</span></td>
             </tr>
-          </table>
-          
-          {* DÉTECTION THÈME JS *}
-          <h4 style="margin-top: 20px;">{'theme_detection_js'|@translate}</h4>
-          <table class="ca-debug-table">
             <tr>
-              <td><strong>{'js_detected_scheme'|@translate}</strong></td>
-              <td><span id="js-scheme-value">{'verification_'|@translate}</span></td>
+              <td><strong>{'is_roma_check'|@translate}</strong></td>
+              <td>{if $theme_debug.is_roma}✅ Oui{else}❌ Non{/if}</td>
             </tr>
             <tr>
-              <td><strong>{'html_classes'|@translate}</strong></td>
-              <td><code id="html-classes-value">{'verification_'|@translate}</code></td>
-            </tr>
-            <tr>
-              <td><strong>{'body_classes'|@translate}</strong></td>
-              <td><code id="body-classes-value">{'verification_'|@translate}</code></td>
-            </tr>
-            <tr>
-              <td><strong>{'body_bgcolor'|@translate}</strong></td>
-              <td><code id="body-bgcolor-value">{'verification_'|@translate}</code></td>
-            </tr>
-            <tr>
-              <td><strong>{'php_js_concordance'|@translate}</strong></td>
-              <td><span id="concordance-value">{'verification_'|@translate}</span></td>
+              <td><strong>{'is_clear_check'|@translate}</strong></td>
+              <td>{if $theme_debug.is_clear}✅ Oui{else}❌ Non{/if}</td>
             </tr>
           </table>
           
-          {* FICHIERS CHARGÉS *}
-          <h4 style="margin-top: 20px;">{'files_charged'|@translate}</h4>
-          <ul class="ca-debug-list">
-            <li><strong>CSS Core:</strong></li>
-            <li>├─ CA-admin-layout.css</li>
-            <li>└─ CA-admin-override.css</li>
-            <li><strong>CSS Form:</strong></li>
-            <li>├─ CA-form-base.css</li>
-            <li>├─ CA-form-components.css</li>
-            <li>└─ CA-form-themes.css</li>
-            <li><strong>CSS Modules:</strong></li>
-            <li>├─ CA-debug.css</li>
-            <li>└─ CA-modal.css</li>
-            <li><strong>JS:</strong></li>
-            <li>├─ CA-init.js</li>
-            <li>├─ CA-theme-detector.js</li>
-            <li>├─ CA-form-controls.js</li>
-            <li>├─ CA-form-colors.js</li>
-            <li>├─ CA-form-preview.js</li>
-            <li>├─ CA-debug.js</li>
-            <li>└─ CA-modal.js</li>
-          </ul>
+          {* ========================================
+            SECTION 3 : CONSOLE NAVIGATEUR
+            ======================================== *}
+          <h4 style="margin-top: 20px;">{'browser_console'|@translate}</h4>
+          <p style="color: #666; font-size: 13px; line-height: 1.6;">
+            {'open_console_f12'|@translate}
+          </p>
           
-          {* CONSOLE NAVIGATEUR *}
-          <h4 style="margin-top: 20px;">{'browser_consol'|@translate}</h4>
-          <p>{'open_console_f12'|@translate}</p>
-          <ul class="ca-debug-list">
-            <li>🔍 PHP Detection: <span id="console-php-detection">{$theme_debug.theme_final}</span></li>
-            <li>🔍 JS Detection: <span id="console-js-detection">{'verification_'|@translate}</span></li>
-            <li>✅ Concordance: <span id="console-concordance">{'verification_'|@translate}</span></li>
-          </ul>
+          {* ========================================
+            SECTION 4 : DEMANDE D'AIDE (NOUVELLE)
+            ======================================== *}
+          <h4 style="margin-top: 20px;">{'help_section_title'|@translate}</h4>
+          <div class="ca-help-links">
+            <p style="margin-bottom: 15px; color: #666;">{'help_section_description'|@translate}</p>
+            <ul class="ca-debug-list" style="list-style: none; padding-left: 0;">
+              <li style="margin-bottom: 10px;">
+                <a href="https://github.com/Gotcha26/centralAdmin/wiki" target="_blank" style="color: #3498db; text-decoration: none; font-weight: 600;">
+                  📚 {'help_link_wiki'|@translate}
+                </a>
+              </li>
+              <li style="margin-bottom: 10px;">
+                <a href="https://github.com/Gotcha26/centralAdmin/discussions" target="_blank" style="color: #3498db; text-decoration: none; font-weight: 600;">
+                  💬 {'help_link_forum'|@translate}
+                </a>
+              </li>
+              <li style="margin-bottom: 10px;">
+                <a href="https://github.com/Gotcha26/centralAdmin/issues" target="_blank" style="color: #3498db; text-decoration: none; font-weight: 600;">
+                  🐛 {'help_link_issues'|@translate}
+                </a>
+              </li>
+              <li style="margin-bottom: 10px;">
+                <a href="https://github.com/Gotcha26/centralAdmin/blob/main/docs/TECHNICAL-DOCUMENTATION.md" target="_blank" style="color: #3498db; text-decoration: none; font-weight: 600;">
+                  📖 {'help_link_documentation'|@translate}
+                </a>
+              </li>
+            </ul>
+          </div>
+          
         </div>
       </div>
     </div>
@@ -227,8 +226,7 @@ if (document.getElementById('central-admin-vars-preview')) {
 
 {* === JAVASCRIPT - Ordre d'exécution important === *}
 
-{* 1. Core - Détection thème (doit être en premier) *}
-<script src="{$CA_THEME_DETECTOR_JS}"></script>
+{* 1. Core - Détection thème (doit être en premier) [OBSOLETE sur DOM, PHP était la solution] *}
 
 {* 2. Modules - Debug (avant form pour être disponible) *}
 <script src="{$CA_DEBUG_JS}"></script>

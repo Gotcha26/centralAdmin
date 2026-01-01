@@ -178,8 +178,16 @@ $lang['js_form'] = 'JavaScript formulaire :';
 $lang['js_preview'] = 'JavaScript prévisualisation :';
 
 // == DEBUG - CONSOLE ==
-$lang['browser_consol'] = 'Console du navigateur';
-$lang['open_console_f12'] = 'Ouvrez les outils de développement (F12) > Console pour voir les détails :';
+$lang['browser_console'] = 'Console du navigateur';
+$lang['open_console_f12'] = 'Ouvrez les outils de développement (F12) > Console pour voir les détails de la détection du thème et du chargement des composants.';
+
+// == NOUVELLE SECTION : DEMANDE D'AIDE ==
+$lang['help_section_title'] = 'Demande d\'aide relative au plugin';
+$lang['help_section_description'] = 'Besoin d\'aide ou vous souhaitez signaler un problème ? Consultez les ressources suivantes :';
+$lang['help_link_wiki'] = 'Documentation Wiki';
+$lang['help_link_forum'] = 'Forum de discussion';
+$lang['help_link_issues'] = 'Signaler un bug ou suggérer une amélioration';
+$lang['help_link_documentation'] = 'Documentation technique complète';
 
 // == PRÉVISUALISATION ==
 $lang['css_vars_injected'] = 'Variables CSS injectées';
