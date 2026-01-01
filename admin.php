@@ -160,37 +160,31 @@ $plugin_path = get_root_url() . 'plugins/centralAdmin/';
 $assets_path = $plugin_path . 'assets/';
 
 // CSS Core
-$css_core_path = $assets_path . 'css/core/';
-$CA_VARIABLES_CSS = ca_asset($css_core_path . 'CA-variables.css');
-$CA_ADMIN_LAYOUT_CSS = ca_asset($css_core_path . 'CA-admin-layout.css');
-$CA_ADMIN_OVERRIDE_CSS = ca_asset($css_core_path . 'CA-admin-override.css');
+$CA_VARIABLES_CSS = $plugin_path . ca_asset('assets/css/core/CA-variables.css');
+$CA_ADMIN_LAYOUT_CSS = $plugin_path . ca_asset('assets/css/core/CA-admin-layout.css');
+$CA_ADMIN_OVERRIDE_CSS = $plugin_path . ca_asset('assets/css/core/CA-admin-override.css');
 
 // CSS Form
-$css_form_path = $assets_path . 'css/form/';
-$CA_FORM_BASE_CSS = ca_asset($css_form_path . 'CA-form-base.css');
-$CA_FORM_COMPONENTS_CSS = ca_asset($css_form_path . 'CA-form-components.css');
-$CA_FORM_THEMES_CSS = ca_asset($css_form_path . 'CA-form-themes.css');
+$CA_FORM_BASE_CSS = $plugin_path . ca_asset('assets/css/form/CA-form-base.css');
+$CA_FORM_COMPONENTS_CSS = $plugin_path . ca_asset('assets/css/form/CA-form-components.css');
+$CA_FORM_THEMES_CSS = $plugin_path . ca_asset('assets/css/form/CA-form-themes.css');
 
 // CSS Modules
 $css_modules_path = $assets_path . 'css/modules/';
-$CA_DEBUG_CSS = ca_asset($css_modules_path . 'CA-debug.css');
-$CA_MODAL_CSS = ca_asset($css_modules_path . 'CA-modal.css');
-$CA_COLORS_UNIFIED_CSS = ca_asset($css_modules_path . 'CA-colors-unified.css');
+$CA_DEBUG_CSS = $plugin_path . ca_asset('assets/css/modules/CA-debug.css');
+$CA_MODAL_CSS = $plugin_path . ca_asset('assets/css/modules/CA-modal.css');
 
 // JS Core
-$js_core_path = $assets_path . 'js/core/';
-$CA_INIT_JS = ca_asset($js_core_path . 'CA-init.js');
+$CA_INIT_JS = $plugin_path . ca_asset('assets/js/core/CA-init.js');
 
 // JS Form
-$js_form_path = $assets_path . 'js/form/';
-$CA_FORM_CONTROLS_JS = ca_asset($js_form_path . 'CA-form-controls.js');
-$CA_FORM_COLORS_JS = ca_asset($js_form_path . 'CA-form-colors.js');
-$CA_FORM_PREVIEW_JS = ca_asset($js_form_path . 'CA-form-preview.js');
+$CA_FORM_CONTROLS_JS = $plugin_path . ca_asset('assets/js/form/CA-form-controls.js');
+$CA_FORM_COLORS_JS = $plugin_path . ca_asset('assets/js/form/CA-form-colors.js');
+$CA_FORM_PREVIEW_JS = $plugin_path . ca_asset('assets/js/form/CA-form-preview.js');
 
 // JS Modules
-$js_modules_path = $assets_path . 'js/modules/';
-$CA_DEBUG_JS = ca_asset($js_modules_path . 'CA-debug.js');
-$CA_MODAL_JS = ca_asset($js_modules_path . 'CA-modal.js');
+$CA_DEBUG_JS = $plugin_path . ca_asset('assets/js/modules/CA-debug.js');
+$CA_MODAL_JS = $plugin_path . ca_asset('assets/js/modules/CA-modal.js');
 
 // ====================================
 // INJECTION DU THÈME
