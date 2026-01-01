@@ -72,6 +72,34 @@ $lang['hide_quick_sync_button_tp'] =
   "Masque le bouton « Créer un album » sur la page de synchronisation.\n"
 . "Utile pour une interface plus épurée.";
 
+// == UNIFIED COLORS SECTION ==
+$lang['central_admin_colors_by_theme'] = 'Colors by Theme';
+$lang['active_theme_info'] = 'Active theme:';
+$lang['theme_preview_note'] = 'Real-time preview only works on the active theme. Colors of the other theme can be modified but will only be visible after switching themes.';
+$lang['theme_clear_title'] = 'Light Theme';
+$lang['theme_dark_title'] = 'Dark Theme';
+$lang['active'] = 'Active';
+
+// == COMMON COLORS (simplified) ==
+$lang['bg_global'] = 'Global background';
+$lang['bg_content2'] = 'Header background';
+$lang['bg_content1'] = 'Main content background';
+$lang['bg_content3'] = 'Secondary background';
+
+// == SECTION COULEURS UNIFIÉE ==
+$lang['central_admin_colors_by_theme'] = 'Couleurs par thème';
+$lang['active_theme_info'] = 'Thème actif :';
+$lang['theme_preview_note'] = 'La prévisualisation temps réel fonctionne uniquement sur le thème actif. Les couleurs de l\'autre thème peuvent être modifiées mais ne seront visibles qu\'après changement de thème.';
+$lang['theme_clear_title'] = 'Thème Clair';
+$lang['theme_dark_title'] = 'Thème Sombre';
+$lang['active'] = 'Actif';
+
+// == COULEURS COMMUNES (simplifiées) ==
+$lang['bg_global'] = 'Arrière-plan général';
+$lang['bg_content2'] = 'Arrière-plan des en-têtes';
+$lang['bg_content1'] = 'Arrière-plan du contenu principal';
+$lang['bg_content3'] = 'Arrière-plan secondaire';
+
 // == COULEURS TOOLTIPS ==
 $lang['infos_main_color'] = 'Couleur des messages informatifs';
 $lang['infos_main_color_tp'] = 'Couleur de fond des bulles d\'information (vert clair par défaut)';
@@ -174,3 +202,11 @@ $lang['version_number'] = 'Version';
 $lang['jquery_not_loaded'] = 'jQuery non chargé';
 $lang['jquery_confirm_available'] = 'jQuery Confirm disponible';
 $lang['credits_loading_error'] = 'Impossible de charger les crédits';
+
+// == SECTIONS RÉORGANISÉES ==
+$lang['central_admin_general'] = 'Général';
+$lang['central_admin_messages_colors'] = 'Couleurs des messages';
+$lang['central_admin_advanced_params'] = 'Paramètres avancés';
+
+// == AVERTISSEMENT AVANCÉS ==
+$lang['advanced_params_warning'] = 'Ces paramètres sont destinés aux utilisateurs avancés. Des valeurs incorrectes peuvent altérer l\'affichage de l\'interface. Utilisez les verrous pour modifier ces paramètres.';
