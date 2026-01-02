@@ -245,11 +245,11 @@ $template->assign(array(
     'CA_MODAL_JS' => $CA_MODAL_JS,
 
     // Templates sections
-    'LAYOUT_SECTION_TPL' => dirname(__FILE__) . '/sections/layout_simplified.tpl',
-    'TOOLTIPS_UNIFIED_SECTION_TPL' => dirname(__FILE__) . '/sections/tooltips_unified.tpl',
-    'COLORS_UNIFIED_SECTION_TPL' => dirname(__FILE__) . '/sections/colors_unified.tpl',
-    'ADVANCED_PARAMS_SECTION_TPL' => dirname(__FILE__) . '/sections/advanced_params.tpl',
-    'DEBUG_SECTION_TPL' => dirname(__FILE__) . '/sections/debug.tpl',
+    'A01_GENERAL_TPL' => dirname(__FILE__) . '/sections/A01_general.tpl',
+    'A02_THEME_COLORS_TPL' => dirname(__FILE__) . '/sections/A02_theme_colors.tpl',
+    'A03_EIW_COLORS_TPL' => dirname(__FILE__) . '/sections/A03_eiw_colors.tpl',
+    'A04_ADVANCED_PARAMS_SECTION_TPL' => dirname(__FILE__) . '/sections/A04_advanced_params.tpl',
+    'A05_DEBUG_SECTION_TPL' => dirname(__FILE__) . '/sections/A05_debug.tpl',
 
     // CSS dynamique
     'dynamic_css' => $dynamicCSS,
