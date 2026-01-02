@@ -157,7 +157,6 @@ $dynamicCSS = $cssGenerator->generate($centralAdmin, $current_scheme);
 // ====================================
 
 $plugin_path = get_root_url() . 'plugins/centralAdmin/';
-$assets_path = $plugin_path . 'assets/';
 
 // CSS Core
 $CA_VARIABLES_CSS = $plugin_path . ca_asset('assets/css/core/CA-variables.css');
@@ -170,7 +169,6 @@ $CA_FORM_COMPONENTS_CSS = $plugin_path . ca_asset('assets/css/form/CA-form-compo
 $CA_FORM_THEMES_CSS = $plugin_path . ca_asset('assets/css/form/CA-form-themes.css');
 
 // CSS Modules
-$css_modules_path = $assets_path . 'css/modules/';
 $CA_COLORS_UNIFIED_CSS = $plugin_path . ca_asset('assets/css/modules/CA-colors-unified.css');
 $CA_DEBUG_CSS = $plugin_path . ca_asset('assets/css/modules/CA-debug.css');
 $CA_MODAL_CSS = $plugin_path . ca_asset('assets/css/modules/CA-modal.css');
