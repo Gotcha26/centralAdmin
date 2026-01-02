@@ -141,13 +141,12 @@ class CA_CSSGenerator {
         }
 
         // Sécurité ultime
-        if (!is_string($css)) {
+        if (!is_string($css) || $css === '') {
             return;
         }
 
-        $template->append(
-            'head_elements',
-            '<style id="' . $id . '">' . $css . '</style>'
+        $template->append('head_elements', 
+            '<style id="' . htmlspecialchars($id, ENT_QUOTES) . '">' . $css . '</style>'
         );
     }
     

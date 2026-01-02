@@ -81,11 +81,7 @@ add_event_handler('loc_begin_admin_page', function () {
         '<style id="central-admin-vars">' . $dynamicCSS . '</style>'
     );
     
-    // === 2. CSS CORE (APRÈS les variables) ===
-    // IMPORTANT : ca_asset() attend SEULEMENT le chemin relatif au plugin
-    // Exemple correct : 'assets/css/core/CA-admin-layout.css'
-    // Exemple incorrect : $assets_url . 'core/CA-admin-layout.css'
-    
+    // === 2. CSS CORE (APRÈS les variables) ===    
     $layout_css_path = ca_asset('assets/css/core/CA-admin-layout.css');
     $template->append('head_elements',
         '<link rel="stylesheet" href="' . $plugin_url . $layout_css_path . '" id="ca-admin-layout">'

@@ -41,10 +41,10 @@ add_event_handler('loc_begin_page_header', function() {
         'themes/default/js/plugins/jquery-confirm.min.js', 
         array('jquery'), 10, false);
     
-    // CSS jQuery Confirm
-    $template->cssLoader->add('jquery-confirm', 
-        'themes/default/js/plugins/jquery-confirm.min.css', 
-        array(), 0);
+    // CSS jQuery Confirm - Injection directe (pas de cssLoader)
+    $template->append('head_elements', 
+        '<link rel="stylesheet" href="themes/default/js/plugins/jquery-confirm.min.css">'
+    );
         
     // Fallback nécessaire pour jquery-confirm
     $template->append('head_elements', '
