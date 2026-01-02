@@ -19,9 +19,6 @@
     {* Largeur admin *}
     <div class="ca-field">
       <div class="ca-field-header">
-        <button type="button" class="ca-lock" data-locked="false" title="{'central_admin_unlocked'|@translate}">
-          <span class="ca-lock-icon">🔓</span>
-        </button>
         <label class="ca-label">
           {'admin_width'|@translate}
           <span class="ca-help-container">
@@ -54,9 +51,6 @@
     {* Option : masquer bouton sync rapide *}
     <div class="ca-field ca-field-checkbox">
       <div class="ca-field-header">
-        <button type="button" class="ca-lock" data-locked="false" title="{'central_admin_unlocked'|@translate}" style="visibility: hidden;">
-          <span class="ca-lock-icon">🔓</span>
-        </button>
         <label class="ca-label">
           {'hide_quick_sync_button'|@translate}
           <span class="ca-help-container">

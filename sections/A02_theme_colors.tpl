@@ -44,9 +44,6 @@
         {* bg_global *}
         <div class="ca-field">
           <div class="ca-field-header">
-            <button type="button" class="ca-lock" data-locked="false" title="{'central_admin_unlocked'|@translate}">
-              <span class="ca-lock-icon">🔓</span>
-            </button>
             <label class="ca-label">
               {'bg_global'|@translate}
               <span class="ca-help-container">
@@ -77,9 +74,6 @@
         {* bg_content2 *}
         <div class="ca-field">
           <div class="ca-field-header">
-            <button type="button" class="ca-lock" data-locked="false" title="{'central_admin_unlocked'|@translate}">
-              <span class="ca-lock-icon">🔓</span>
-            </button>
             <label class="ca-label">
               {'bg_content2'|@translate}
               <span class="ca-help-container">
@@ -110,9 +104,6 @@
         {* bg_content1 *}
         <div class="ca-field">
           <div class="ca-field-header">
-            <button type="button" class="ca-lock" data-locked="false" title="{'central_admin_unlocked'|@translate}">
-              <span class="ca-lock-icon">🔓</span>
-            </button>
             <label class="ca-label">
               {'bg_content1'|@translate}
               <span class="ca-help-container">
@@ -143,9 +134,6 @@
         {* bg_content3 *}
         <div class="ca-field">
           <div class="ca-field-header">
-            <button type="button" class="ca-lock" data-locked="false" title="{'central_admin_unlocked'|@translate}">
-              <span class="ca-lock-icon">🔓</span>
-            </button>
             <label class="ca-label">
               {'bg_content3'|@translate}
               <span class="ca-help-container">
@@ -194,9 +182,6 @@
         {* bg_global *}
         <div class="ca-field">
           <div class="ca-field-header">
-            <button type="button" class="ca-lock" data-locked="false" title="{'central_admin_unlocked'|@translate}">
-              <span class="ca-lock-icon">🔓</span>
-            </button>
             <label class="ca-label">
               {'bg_global'|@translate}
               <span class="ca-help-container">
@@ -227,9 +212,6 @@
         {* bg_content2 *}
         <div class="ca-field">
           <div class="ca-field-header">
-            <button type="button" class="ca-lock" data-locked="false" title="{'central_admin_unlocked'|@translate}">
-              <span class="ca-lock-icon">🔓</span>
-            </button>
             <label class="ca-label">
               {'bg_content2'|@translate}
               <span class="ca-help-container">
@@ -260,9 +242,6 @@
         {* bg_content1 *}
         <div class="ca-field">
           <div class="ca-field-header">
-            <button type="button" class="ca-lock" data-locked="false" title="{'central_admin_unlocked'|@translate}">
-              <span class="ca-lock-icon">🔓</span>
-            </button>
             <label class="ca-label">
               {'bg_content1'|@translate}
               <span class="ca-help-container">
@@ -293,9 +272,6 @@
         {* bg_content3 *}
         <div class="ca-field">
           <div class="ca-field-header">
-            <button type="button" class="ca-lock" data-locked="false" title="{'central_admin_unlocked'|@translate}">
-              <span class="ca-lock-icon">🔓</span>
-            </button>
             <label class="ca-label">
               {'bg_content3'|@translate}
               <span class="ca-help-container">

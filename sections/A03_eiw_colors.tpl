@@ -26,9 +26,6 @@
     <div class="ca-common-param">
       <div class="ca-field">
         <div class="ca-field-header">
-          <button type="button" class="ca-lock" data-locked="false" title="{'central_admin_unlocked'|@translate}">
-            <span class="ca-lock-icon">🔓</span>
-          </button>
           <label class="ca-label">
             {'fade_start'|@translate}
             <span class="ca-help-container">
@@ -79,9 +76,6 @@
         {* infos_main_color *}
         <div class="ca-field">
           <div class="ca-field-header">
-            <button type="button" class="ca-lock" data-locked="false" title="{'central_admin_unlocked'|@translate}">
-              <span class="ca-lock-icon">🔓</span>
-            </button>
             <label class="ca-label">
               {'infos_main_color'|@translate}
               <span class="ca-help-container">
@@ -112,9 +106,6 @@
         {* warning_main_color *}
         <div class="ca-field">
           <div class="ca-field-header">
-            <button type="button" class="ca-lock" data-locked="false" title="{'central_admin_unlocked'|@translate}">
-              <span class="ca-lock-icon">🔓</span>
-            </button>
             <label class="ca-label">
               {'warning_main_color'|@translate}
               <span class="ca-help-container">
@@ -145,9 +136,6 @@
         {* messages_main_color *}
         <div class="ca-field">
           <div class="ca-field-header">
-            <button type="button" class="ca-lock" data-locked="false" title="{'central_admin_unlocked'|@translate}">
-              <span class="ca-lock-icon">🔓</span>
-            </button>
             <label class="ca-label">
               {'messages_main_color'|@translate}
               <span class="ca-help-container">
@@ -178,9 +166,6 @@
         {* error_main_color *}
         <div class="ca-field">
           <div class="ca-field-header">
-            <button type="button" class="ca-lock" data-locked="false" title="{'central_admin_unlocked'|@translate}">
-              <span class="ca-lock-icon">🔓</span>
-            </button>
             <label class="ca-label">
               {'error_main_color'|@translate}
               <span class="ca-help-container">
@@ -229,9 +214,6 @@
         {* infos_main_color *}
         <div class="ca-field">
           <div class="ca-field-header">
-            <button type="button" class="ca-lock" data-locked="false" title="{'central_admin_unlocked'|@translate}">
-              <span class="ca-lock-icon">🔓</span>
-            </button>
             <label class="ca-label">
               {'infos_main_color'|@translate}
               <span class="ca-help-container">
@@ -262,9 +244,6 @@
         {* warning_main_color *}
         <div class="ca-field">
           <div class="ca-field-header">
-            <button type="button" class="ca-lock" data-locked="false" title="{'central_admin_unlocked'|@translate}">
-              <span class="ca-lock-icon">🔓</span>
-            </button>
             <label class="ca-label">
               {'warning_main_color'|@translate}
               <span class="ca-help-container">
@@ -295,9 +274,6 @@
         {* messages_main_color *}
         <div class="ca-field">
           <div class="ca-field-header">
-            <button type="button" class="ca-lock" data-locked="false" title="{'central_admin_unlocked'|@translate}">
-              <span class="ca-lock-icon">🔓</span>
-            </button>
             <label class="ca-label">
               {'messages_main_color'|@translate}
               <span class="ca-help-container">
@@ -328,9 +304,6 @@
         {* error_main_color *}
         <div class="ca-field">
           <div class="ca-field-header">
-            <button type="button" class="ca-lock" data-locked="false" title="{'central_admin_unlocked'|@translate}">
-              <span class="ca-lock-icon">🔓</span>
-            </button>
             <label class="ca-label">
               {'error_main_color'|@translate}
               <span class="ca-help-container">
