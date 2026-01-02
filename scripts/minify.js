@@ -18,6 +18,7 @@ const CSS_FILES = [
   'core/CA-admin-override.css',
   'form/CA-form-base.css',
   'form/CA-form-components.css',
+  'form/CA-form-themes.css',
   'modules/CA-debug.css',
   'modules/CA-modal.css',
   'modules/CA-colors-unified.css'
