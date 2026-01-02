@@ -249,6 +249,7 @@ $template->assign(array(
     'TOOLTIPS_UNIFIED_SECTION_TPL' => dirname(__FILE__) . '/sections/tooltips_unified.tpl',
     'COLORS_UNIFIED_SECTION_TPL' => dirname(__FILE__) . '/sections/colors_unified.tpl',
     'ADVANCED_PARAMS_SECTION_TPL' => dirname(__FILE__) . '/sections/advanced_params.tpl',
+    'DEBUG_SECTION_TPL' => dirname(__FILE__) . '/sections/debug.tpl',
 
     // CSS dynamique
     'dynamic_css' => $dynamicCSS,
