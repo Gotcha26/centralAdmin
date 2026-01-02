@@ -70,25 +70,30 @@ add_event_handler('loc_begin_admin_page', function () {
     // Récupérer le schéma actif
     $scheme = $themeDetector->getTheme();
 
-    // CHEMINS des fichiers CSS
+    // URL de base du plugin
     $plugin_url = get_root_url() . 'plugins/centralAdmin/';
-    $assets_url = $plugin_url . 'assets/css/';
-
+    
     // === 1. VARIABLES CSS DYNAMIQUES (EN PREMIER) ===
     $dynamicCSS = $cssGenerator->generate($conf['centralAdmin'], $scheme);
     
-    // Injection DIRECTE dans head_elements (comme version fonctionnelle)
+    // Injection DIRECTE dans head_elements
     $template->append('head_elements', 
         '<style id="central-admin-vars">' . $dynamicCSS . '</style>'
     );
-
+    
     // === 2. CSS CORE (APRÈS les variables) ===
+    // IMPORTANT : ca_asset() attend SEULEMENT le chemin relatif au plugin
+    // Exemple correct : 'assets/css/core/CA-admin-layout.css'
+    // Exemple incorrect : $assets_url . 'core/CA-admin-layout.css'
+    
+    $layout_css_path = ca_asset('assets/css/core/CA-admin-layout.css');
     $template->append('head_elements',
-        '<link rel="stylesheet" href="' . ca_asset($assets_url . 'core/CA-admin-layout.css') . '" id="ca-admin-layout">'
+        '<link rel="stylesheet" href="' . $plugin_url . $layout_css_path . '" id="ca-admin-layout">'
     );
-
+    
+    $override_css_path = ca_asset('assets/css/core/CA-admin-override.css');
     $template->append('head_elements',
-        '<link rel="stylesheet" href="' . ca_asset($assets_url . 'core/CA-admin-override.css') . '" id="ca-admin-override">'
+        '<link rel="stylesheet" href="' . $plugin_url . $override_css_path . '" id="ca-admin-override">'
     );
 
     // === 3. INJECTION ATTRIBUT THÈME ===
