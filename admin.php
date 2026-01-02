@@ -11,8 +11,6 @@
 
 defined('PHPWG_ROOT_PATH') or die('Hacking attempt!');
 
-include_once dirname(__FILE__) . '/includes/functions-assets.php';
-
 global $template, $conf, $page, $user;
 
 // ====================================
@@ -41,10 +39,10 @@ add_event_handler('loc_begin_page_header', function() {
         'themes/default/js/plugins/jquery-confirm.min.js', 
         array('jquery'), 10, false);
     
-    // CSS jQuery Confirm
-    $template->cssLoader->add('jquery-confirm', 
-        'themes/default/js/plugins/jquery-confirm.min.css', 
-        array(), 0);
+    // CSS jQuery Confirm - Injection directe (pas de cssLoader)
+    $template->append('head_elements', 
+        '<link rel="stylesheet" href="themes/default/js/plugins/jquery-confirm.min.css">'
+    );
         
     // Fallback nécessaire pour jquery-confirm
     $template->append('head_elements', '
@@ -157,33 +155,40 @@ $dynamicCSS = $cssGenerator->generate($centralAdmin, $current_scheme);
 // ====================================
 
 $plugin_path = get_root_url() . 'plugins/centralAdmin/';
+$assets_path = $plugin_path . 'assets/';
 
 // CSS Core
-$CA_VARIABLES_CSS = $plugin_path . ca_asset('assets/css/core/CA-variables.css');
-$CA_ADMIN_LAYOUT_CSS = $plugin_path . ca_asset('assets/css/core/CA-admin-layout.css');
-$CA_ADMIN_OVERRIDE_CSS = $plugin_path . ca_asset('assets/css/core/CA-admin-override.css');
+$css_core_path = $assets_path . 'css/core/';
+$CA_VARIABLES_CSS = $css_core_path . 'CA-variables.css';
+$CA_ADMIN_LAYOUT_CSS = $css_core_path . 'CA-admin-layout.css';
+$CA_ADMIN_OVERRIDE_CSS = $css_core_path . 'CA-admin-override.css';
 
 // CSS Form
-$CA_FORM_BASE_CSS = $plugin_path . ca_asset('assets/css/form/CA-form-base.css');
-$CA_FORM_COMPONENTS_CSS = $plugin_path . ca_asset('assets/css/form/CA-form-components.css');
-$CA_FORM_THEMES_CSS = $plugin_path . ca_asset('assets/css/form/CA-form-themes.css');
+$css_form_path = $assets_path . 'css/form/';
+$CA_FORM_BASE_CSS = $css_form_path . 'CA-form-base.css';
+$CA_FORM_COMPONENTS_CSS = $css_form_path . 'CA-form-components.css';
+$CA_FORM_THEMES_CSS = $css_form_path . 'CA-form-themes.css';
 
 // CSS Modules
-$CA_COLORS_UNIFIED_CSS = $plugin_path . ca_asset('assets/css/modules/CA-colors-unified.css');
-$CA_DEBUG_CSS = $plugin_path . ca_asset('assets/css/modules/CA-debug.css');
-$CA_MODAL_CSS = $plugin_path . ca_asset('assets/css/modules/CA-modal.css');
+$css_modules_path = $assets_path . 'css/modules/';
+$CA_DEBUG_CSS = $css_modules_path . 'CA-debug.css';
+$CA_MODAL_CSS = $css_modules_path . 'CA-modal.css';
+$CA_COLORS_UNIFIED_CSS = $css_modules_path . 'CA-colors-unified.css';
 
 // JS Core
-$CA_INIT_JS = $plugin_path . ca_asset('assets/js/core/CA-init.js');
+$js_core_path = $assets_path . 'js/core/';
+$CA_INIT_JS = $js_core_path . 'CA-init.js';
 
 // JS Form
-$CA_FORM_CONTROLS_JS = $plugin_path . ca_asset('assets/js/form/CA-form-controls.js');
-$CA_FORM_COLORS_JS = $plugin_path . ca_asset('assets/js/form/CA-form-colors.js');
-$CA_FORM_PREVIEW_JS = $plugin_path . ca_asset('assets/js/form/CA-form-preview.js');
+$js_form_path = $assets_path . 'js/form/';
+$CA_FORM_CONTROLS_JS = $js_form_path . 'CA-form-controls.js';
+$CA_FORM_COLORS_JS = $js_form_path . 'CA-form-colors.js';
+$CA_FORM_PREVIEW_JS = $js_form_path . 'CA-form-preview.js';
 
 // JS Modules
-$CA_DEBUG_JS = $plugin_path . ca_asset('assets/js/modules/CA-debug.js');
-$CA_MODAL_JS = $plugin_path . ca_asset('assets/js/modules/CA-modal.js');
+$js_modules_path = $assets_path . 'js/modules/';
+$CA_DEBUG_JS = $js_modules_path . 'CA-debug.js';
+$CA_MODAL_JS = $js_modules_path . 'CA-modal.js';
 
 // ====================================
 // INJECTION DU THÈME

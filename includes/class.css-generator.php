@@ -121,13 +121,32 @@ class CA_CSSGenerator {
      * Injecte le CSS dans le template
      * 
      * @param object $template Instance du template Smarty
-     * @param string $css CSS à injecter
+     * @param string|array $css CSS à injecter
      * @param string $id ID du tag <style>
      */
     public function injectInTemplate($template, $css, $id = 'central-admin-vars') {
-        $template->append(
-            'head_elements',
-            '<style id="' . $id . '">' . $css . '</style>'
+
+        // Sécurité : Piwigo ne sait gérer que des strings à ce stade
+        if (is_array($css)) {
+            $buffer = '';
+
+            foreach ($css as $name => $value) {
+                // Normalisation minimale
+                if (is_scalar($value)) {
+                    $buffer .= $this->indent . $this->prefix . $name . ': ' . $value . ";\n";
+                }
+            }
+
+            $css = ":root {\n" . $buffer . "}\n";
+        }
+
+        // Sécurité ultime
+        if (!is_string($css) || $css === '') {
+            return;
+        }
+
+        $template->append('head_elements', 
+            '<style id="' . htmlspecialchars($id, ENT_QUOTES) . '">' . $css . '</style>'
         );
     }
     
@@ -138,11 +157,25 @@ class CA_CSSGenerator {
      * @param string $url URL du fichier CSS
      * @param string $id ID du tag <link>
      */
-    public function injectCSSFile($template, $url, $id = null) {
-        $idAttr = $id ? ' id="' . $id . '"' : '';
+    public function injectCSSFile($template, $url, $id = null)
+    {
+        // 🔥 TRACE TEMPORAIRE (tu peux la garder pour debug)
+        error_log('[CA][CSS] injectCSSFile(): type(url) = ' . gettype($url));
+        if (is_array($url)) {
+            error_log('[CA][CSS] URL ARRAY FOUND ↓↓↓');
+            error_log(print_r($url, true));
+            return; // ⛔ on n’injecte PAS
+        }
+
+        if (!is_string($url) || $url === '') {
+            return;
+        }
+
+        $idAttr = $id ? ' id="' . htmlspecialchars($id, ENT_QUOTES) . '"' : '';
+
         $template->append(
             'head_elements',
-            '<link rel="stylesheet" href="' . $url . '"' . $idAttr . '>'
+            '<link rel="stylesheet" href="' . htmlspecialchars($url, ENT_QUOTES) . '"' . $idAttr . '>'
         );
     }
     
