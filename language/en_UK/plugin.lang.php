@@ -35,6 +35,16 @@ $lang['preference_browser_scheme'] = 'Use browser theme preference';
 $lang['accordion_choice'] = 'Only one panel open at a time';
 
 // == LAYOUT PARAMETERS ==
+$lang['hide_activity_summary'] = 'Hide activity summary on home page';
+$lang['hide_activity_summary_tp'] = 
+  "Hides the activity chart on the administration home page.\n"
+. "Useful for a cleaner interface.";
+
+$lang['hide_storage_info'] = 'Hide storage information on home page';
+$lang['hide_storage_info_tp'] = 
+  "Hides storage statistics on the administration home page.\n"
+. "Useful for a cleaner interface.";
+
 $lang['admin_width'] = 'Maximum administration width';
 $lang['admin_width_tp'] = "Maximum width of the administration interface.\nRecommended value: 1600px\nFor advanced users only.";
 

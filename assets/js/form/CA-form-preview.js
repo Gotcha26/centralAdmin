@@ -126,6 +126,25 @@
         updateCSSVariable('--ca-layout-fade-start', fadeNumber.value + 'px');
       });
     }
+
+    // hide_activity_summary
+    const activitySummaryCheckbox = document.querySelector('input[name="layout[hide_activity_summary]"]');
+    if (activitySummaryCheckbox) {
+      activitySummaryCheckbox.addEventListener('change', () => {
+        const displayValue = activitySummaryCheckbox.checked ? 'none' : 'block';
+        updateCSSVariable('--ca-layout-hide-activity-summary', displayValue);
+      });
+    }
+
+    // hide_storage_info
+    const storageInfoCheckbox = document.querySelector('input[name="layout[hide_storage_info]"]');
+    if (storageInfoCheckbox) {
+      storageInfoCheckbox.addEventListener('change', () => {
+        const displayValue = storageInfoCheckbox.checked ? 'none' : 'block';
+        updateCSSVariable('--ca-layout-hide-storage-info', displayValue);
+      });
+    }
+    
   }
 
   /* ================================================

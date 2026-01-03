@@ -49,10 +49,11 @@ class CA_CSSGenerator {
         $css = "\n" . $this->indent . "/* Layout */\n";
         
         foreach ($layout as $key => $value) {
-            // Traitement spécial pour hide_quick_sync
-            if ($key === 'hide_quick_sync') {
+            // Traitement spécial pour les options de masquage
+            if (in_array($key, ['hide_quick_sync', 'hide_activity_summary', 'hide_storage_info'])) {
                 $displayValue = ($value === '1') ? 'none' : 'block';
-                $css .= $this->indent . $this->prefix . 'layout-hide-quick-sync: ' . $displayValue . ";\n";
+                $cssVarName = str_replace('_', '-', $key);
+                $css .= $this->indent . $this->prefix . 'layout-' . $cssVarName . ': ' . $displayValue . ";\n";
                 continue;
             }
             
