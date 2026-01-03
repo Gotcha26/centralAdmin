@@ -113,7 +113,7 @@ a.icon-plus-circled[href*="page=album"],
   right: max(
     calc(var(--ca-layout-menubar-width) + 15px),
     calc(var(--ca-layout-gutter) + var(--ca-layout-menubar-width) + 15px)
-  );
+  ) !important;
 }
 
 .selection-mode-group-manager {
