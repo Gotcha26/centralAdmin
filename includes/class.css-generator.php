@@ -81,7 +81,9 @@ class CA_CSSGenerator {
         $mergedColors = array_merge($baseColors, $userModifications);
         
         foreach ($mergedColors as $key => $value) {
-            $varName = $this->prefix . 'color-' . str_replace('_', '-', $key);
+            // Conserver les underscores pour les tooltips (infos_main_color, etc.)
+            $cssKey = str_replace('_', '-', $key);
+            $varName = $this->prefix . 'color-' . $cssKey;
             $css .= $this->indent . $varName . ': ' . $this->sanitizeColor($value) . ";\n";
         }
         

@@ -27,36 +27,36 @@ html {
 .eiw .messages {
   background: linear-gradient(
     to right,
-    var(--ca-color-messages-main-color) 0,
+    var(--ca-color-messages-main-color) 0px,
     var(--ca-color-messages-main-color) var(--ca-layout-fade-start),
-    rgba(0, 0, 0, 0.05) 100%
+    transparent calc(var(--ca-layout-fade-start) + 400px)
   );
 }
 
 .eiw .infos {
   background: linear-gradient(
     to right,
-    var(--ca-color-infos-main-color) 0,
+    var(--ca-color-infos-main-color) 0px,
     var(--ca-color-infos-main-color) var(--ca-layout-fade-start),
-    rgba(0, 170, 0, 0.05) 100%
+    transparent calc(var(--ca-layout-fade-start) + 400px)
   );
 }
 
 .eiw .warnings {
   background: linear-gradient(
     to right,
-    var(--ca-color-warning-main-color) 0,
+    var(--ca-color-warning-main-color) 0px,
     var(--ca-color-warning-main-color) var(--ca-layout-fade-start),
-    rgba(0, 0, 0, 0.05) 100%
+    transparent calc(var(--ca-layout-fade-start) + 400px)
   );
 }
 
 .eiw .error {
   background: linear-gradient(
     to right,
-    var(--ca-color-error-main-color) 0,
+    var(--ca-color-error-main-color) 0px,
     var(--ca-color-error-main-color) var(--ca-layout-fade-start),
-    rgba(0, 0, 0, 0.05) 100%
+    transparent calc(var(--ca-layout-fade-start) + 400px)
   );
 }
 
