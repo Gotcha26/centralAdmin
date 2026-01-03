@@ -11,6 +11,10 @@
 }
 
 /* === COMMUNS === */
+.eiw a {
+    padding: 0px 7px;
+}
+
 .eiw ul li:nth-child(2) a[href="admin.php?page=plugins&filter=deactivated"],
 #showCreateSite a,
 #showAddPermalink a {
