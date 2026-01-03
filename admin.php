@@ -90,7 +90,8 @@ if (isset($_POST['save'])) {
     if (isset($_POST['layout']) && is_array($_POST['layout'])) {
         $newData['layout'] = array();
         foreach ($_POST['layout'] as $key => $value) {
-            if ($key === 'hide_quick_sync') {
+            // Checkboxes de masquage
+            if (in_array($key, ['hide_quick_sync', 'hide_homepage_charts'])) {
                 $newData['layout'][$key] = $value;
             } else {
                 $newData['layout'][$key] = trim($value);
@@ -98,9 +99,12 @@ if (isset($_POST['save'])) {
         }
     }
     
-    // Gestion checkbox non coché
-    if (!isset($_POST['layout']['hide_quick_sync'])) {
-        $newData['layout']['hide_quick_sync'] = '0';
+    // Gestion checkboxes non cochées (valeur 0 si absente)
+    $checkboxes = ['hide_quick_sync', 'hide_homepage_charts'];
+    foreach ($checkboxes as $checkbox) {
+        if (!isset($_POST['layout'][$checkbox])) {
+            $newData['layout'][$checkbox] = '0';
+        }
     }
     
     // Colors - Sauvegarder pour le schéma actif uniquement

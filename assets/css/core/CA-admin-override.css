@@ -162,14 +162,6 @@ a.icon-plus-circled[href*="page=album"],
 }
 
 /* === OPTIONS DE MASQUAGE PAGE D'ACCUEIL === */
-div.chart-title:nth-child(1),
-.activity-chart {
-  display: var(--ca-layout-hide-activity-summary, block) !important;
-}
-
-#chart-title-storage,
-.storage-chart,
-.storage-tooltips,
-.storage-chart-legend {
-  display: var(--ca-layout-hide-storage-info, block) !important;
+.intro-charts {
+  display: var(--ca-layout-hide-homepage-charts, block) !important;
 }

@@ -50,8 +50,8 @@ class CA_CSSGenerator {
         
         foreach ($layout as $key => $value) {
             // Traitement spécial pour les options de masquage
-            if (in_array($key, ['hide_quick_sync', 'hide_activity_summary', 'hide_storage_info'])) {
-                $displayValue = ($value === '1') ? 'none' : 'block';
+            if (in_array($key, ['hide_quick_sync', 'hide_homepage_charts'])) {
+                $displayValue = ($value === '1') ? 'none' : 'initial';
                 $cssVarName = str_replace('_', '-', $key);
                 $css .= $this->indent . $this->prefix . 'layout-' . $cssVarName . ': ' . $displayValue . ";\n";
                 continue;
@@ -100,9 +100,11 @@ class CA_CSSGenerator {
         
         // Layout
         foreach ($layout as $key => $value) {
-            if ($key === 'hide_quick_sync') {
-                $displayValue = ($value === '1') ? 'none' : 'block';
-                $css .= $this->prefix . 'layout-hide-quick-sync: ' . $displayValue . ";\n";
+            // Traitement spécial pour les options de masquage
+            if (in_array($key, ['hide_quick_sync', 'hide_homepage_charts'])) {
+                $displayValue = ($value === '1') ? 'none' : 'initial';
+                $cssVarName = str_replace('_', '-', $key);
+                $css .= $this->prefix . 'layout-' . $cssVarName . ': ' . $displayValue . ";\n";
             } else {
                 $varName = $this->prefix . 'layout-' . str_replace('_', '-', $key);
                 $css .= $varName . ': ' . (int)$value . "px;\n";

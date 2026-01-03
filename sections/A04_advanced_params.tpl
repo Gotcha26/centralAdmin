@@ -22,49 +22,25 @@
       <p>{'advanced_params_warning'|@translate}</p>
     </div>
 
-    {* hide_activity_summary *}
+    {* hide_homepage_charts *}
     <div class="ca-field ca-field-checkbox">
       <div class="ca-field-header">
         <label class="ca-label">
-          {'hide_activity_summary'|@translate}
+          {'hide_homepage_charts'|@translate}
           <span class="ca-help-container">
             <button type="button" class="ca-help">
               ⓘ
             </button>
-            <span class="help-tooltip">{'hide_activity_summary_tp'|@translate}</span>
+            <span class="help-tooltip">{'hide_homepage_charts_tp'|@translate}</span>
           </span>
         </label>
       </div>
       <div class="ca-field-controls">
         <label class="ca-switch">
           <input type="checkbox" 
-                name="layout[hide_activity_summary]"
+                name="layout[hide_homepage_charts]"
                 value="1"
-                {if isset($centralAdmin.layout.hide_activity_summary) && $centralAdmin.layout.hide_activity_summary == '1'}checked{/if}>
-          <span class="ca-switch-slider"></span>
-        </label>
-      </div>
-    </div>
-
-    {* hide_storage_info *}
-    <div class="ca-field ca-field-checkbox">
-      <div class="ca-field-header">
-        <label class="ca-label">
-          {'hide_storage_info'|@translate}
-          <span class="ca-help-container">
-            <button type="button" class="ca-help">
-              ⓘ
-            </button>
-            <span class="help-tooltip">{'hide_storage_info_tp'|@translate}</span>
-          </span>
-        </label>
-      </div>
-      <div class="ca-field-controls">
-        <label class="ca-switch">
-          <input type="checkbox" 
-                name="layout[hide_storage_info]"
-                value="1"
-                {if isset($centralAdmin.layout.hide_storage_info) && $centralAdmin.layout.hide_storage_info == '1'}checked{/if}>
+                {if isset($centralAdmin.layout.hide_homepage_charts) && $centralAdmin.layout.hide_homepage_charts == '1'}checked{/if}>
           <span class="ca-switch-slider"></span>
         </label>
       </div>

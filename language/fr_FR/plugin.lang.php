@@ -36,14 +36,9 @@ $lang['preference_browser_scheme'] = 'Affichage avec le thème neutre';
 $lang['accordion_choice'] = 'Un seul panneau ouvert à la fois';
 
 // == PARAMÈTRES LAYOUT ==
-$lang['hide_activity_summary'] = 'Masquer le résumé d\'activité sur page d\'accueil';
-$lang['hide_activity_summary_tp'] = 
-  "Masque le graphique d'activité sur la page d'accueil de l'administration.\n"
-. "Utile pour une interface plus épurée.";
-
-$lang['hide_storage_info'] = 'Masquer les informations de stockage sur page d\'accueil';
-$lang['hide_storage_info_tp'] = 
-  "Masque les statistiques de stockage sur la page d'accueil de l'administration.\n"
+$lang['hide_homepage_charts'] = 'Masquer les graphiques de la page d\'accueil';
+$lang['hide_homepage_charts_tp'] = 
+  "Masque les graphiques d'activité et de stockage sur la page d'accueil.\n"
 . "Utile pour une interface plus épurée.";
 
 $lang['admin_width'] ='Largeur maximale de l\'administration';
