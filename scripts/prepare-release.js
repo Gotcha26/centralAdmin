@@ -75,6 +75,7 @@ const EXCLUDE_FOLDERS = [
   'images',
   'scripts',
   '.git',
+  'archives',
   '.github'
 ];
 
