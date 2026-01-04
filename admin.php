@@ -164,7 +164,6 @@ $plugin_path = get_root_url() . 'plugins/centralAdmin/';
 
 // CSS Core
 $CA_VARIABLES_CSS = $plugin_path . ca_asset('assets/css/core/CA-variables.css');
-$CA_ADMIN_LAYOUT_CSS = $plugin_path . ca_asset('assets/css/core/CA-admin-layout.css');
 $CA_ADMIN_OVERRIDE_CSS = $plugin_path . ca_asset('assets/css/core/CA-admin-override.css');
 
 // CSS Form
@@ -223,7 +222,6 @@ $template->assign(array(
 
     // CSS - Core
     'CA_VARIABLES_CSS' => $CA_VARIABLES_CSS,
-    'CA_ADMIN_LAYOUT_CSS' => $CA_ADMIN_LAYOUT_CSS,
     'CA_ADMIN_OVERRIDE_CSS' => $CA_ADMIN_OVERRIDE_CSS,
 
     // CSS - Form

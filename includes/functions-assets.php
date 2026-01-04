@@ -13,7 +13,7 @@ defined('PHPWG_ROOT_PATH') or die('Hacking attempt!');
  * Retourne le chemin d'un asset en privilégiant la version minifiée si elle existe
  * 
  * IMPORTANT : Cette fonction attend un chemin RELATIF depuis la racine du plugin
- * Exemple correct : 'assets/css/core/CA-admin-layout.css'
+ * Exemple correct : 'assets/css/core/CA-admin-override.css'
  * Exemple incorrect : 'plugins/centralAdmin/assets/css/...' ← Ne jamais faire ça !
  * 
  * @param string $asset_path Chemin relatif de l'asset depuis la racine du plugin

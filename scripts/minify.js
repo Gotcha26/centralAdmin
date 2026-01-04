@@ -14,7 +14,6 @@ const ASSETS_JS = path.join(ROOT, 'assets', 'js');
 // Veuillez à ne pas inclure de fichiers des minifié !
 // Exclusion de form/CA-form-themes.css. > Lire docs/INVALID-CSS-FILE.md
 const CSS_FILES = [
-  'core/CA-admin-layout.css',
   'core/CA-admin-override.css',
   'form/CA-form-base.css',
   'form/CA-form-components.css',

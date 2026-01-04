@@ -82,11 +82,6 @@ add_event_handler('loc_begin_admin_page', function () {
     );
     
     // === 2. CSS CORE (APRÈS les variables) ===    
-    $layout_css_path = ca_asset('assets/css/core/CA-admin-layout.css');
-    $template->append('head_elements',
-        '<link rel="stylesheet" href="' . $plugin_url . $layout_css_path . '" id="ca-admin-layout">'
-    );
-    
     $override_css_path = ca_asset('assets/css/core/CA-admin-override.css');
     $template->append('head_elements',
         '<link rel="stylesheet" href="' . $plugin_url . $override_css_path . '" id="ca-admin-override">'
