@@ -59,7 +59,7 @@ function openFolder(folderPath) {
   
   exec(command, (error) => {
     if (error) {
-      console.log(`\n⚠️  Impossible d'ouvrir le dossier automatiquement`);
+      // console.log(`\n⚠️  Impossible d'ouvrir le dossier automatiquement`);
     }
   });
 }
@@ -82,12 +82,11 @@ const EXCLUDE_FOLDERS = [
 const EXCLUDE_FILES = [
   '.gitignore',
   'package.json',
-  'package-lock.json',
-  '/assets/css/form/CA-form-theme_original.css'
+  'package-lock.json'
 ];
 
 const ALLOWED_EXTENSIONS = [
-  '.php', '.css', '.js', '.tpl', '.txt', 
+  '.php', '.css', '.scss', '.js', '.tpl', '.txt', 
   '.md', '.pdf', '.html', '.png', '.jpg', '.jpeg'
 ];
 
@@ -114,7 +113,7 @@ function detectMinifiedFiles() {
   const minified = { css: [], js: [] };
   const normal = { css: [], js: [] };
 
-  // CSS
+  // CSS + SCSS
   const cssDir = path.join(ROOT, 'assets', 'css');
   if (fs.existsSync(cssDir)) {
     const scanCssDir = (dir, base = '') => {
@@ -127,7 +126,7 @@ function detectMinifiedFiles() {
           scanCssDir(fullPath, relativePath);
         } else if (item.endsWith('.min.css')) {
           minified.css.push(relativePath);
-        } else if (item.endsWith('.css')) {
+        } else if (item.endsWith('.css') || item.endsWith('.scss')) {
           normal.css.push(relativePath);
         }
       });
@@ -135,7 +134,7 @@ function detectMinifiedFiles() {
     scanCssDir(cssDir);
   }
 
-  // JS
+  // JS (inchangé)
   const jsDir = path.join(ROOT, 'assets', 'js');
   if (fs.existsSync(jsDir)) {
     const scanJsDir = (dir, base = '') => {
@@ -195,11 +194,11 @@ function shouldInclude(filePath, assetMode) {
       // Uniquement .min.css et .min.js
       return /\.min\.(css|js)$/i.test(fileName);
     } else if (assetMode === 'normal') {
-      // Uniquement fichiers normaux (pas .min.)
-      return /\.(css|js)$/i.test(fileName) && !/\.min\./i.test(fileName);
+      // Fichiers normaux : .css, .scss, .js (pas .min.)
+      return /\.(css|scss|js)$/i.test(fileName) && !/\.min\./i.test(fileName);
     } else if (assetMode === 'all') {
-      // Tous les fichiers CSS/JS
-      return /\.(css|js)$/i.test(fileName);
+      // Tous les fichiers CSS/SCSS/JS
+      return /\.(css|scss|js)$/i.test(fileName);
     }
   }
 
@@ -298,12 +297,31 @@ async function promptUser() {
   console.log('🔧 CONFIGURATION DE LA RELEASE');
   console.log('═══════════════════════════════════════\n');
 
+  // 🆕 OPTION MINIFICATION
+  const shouldMinify = await question('Lancer la minification avant la release ? [o/N]: ');
+  if (shouldMinify.toLowerCase() === 'o' || shouldMinify.toLowerCase() === 'y') {
+    console.log('\n🗜️  Lancement de la minification...\n');
+    
+    await new Promise((resolve, reject) => {
+      exec('npm run minify', { cwd: ROOT }, (error, stdout, stderr) => {
+        if (error) {
+          console.error('❌ Erreur minification:', stderr);
+          reject(error);
+        } else {
+          console.log(stdout);
+          console.log('✅ Minification terminée\n');
+          resolve();
+        }
+      });
+    });
+  }
+
   // Détection versions disponibles
   const detected = detectMinifiedFiles();
   const hasMinified = detected.minified.css.length > 0 || detected.minified.js.length > 0;
 
   console.log('📊 Fichiers détectés:');
-  console.log(`  - CSS normaux: ${detected.normal.css.length}`);
+  console.log(`  - CSS/SCSS normaux: ${detected.normal.css.length}`);
   console.log(`  - CSS minifiés: ${detected.minified.css.length}`);
   console.log(`  - JS normaux: ${detected.normal.js.length}`);
   console.log(`  - JS minifiés: ${detected.minified.js.length}\n`);
@@ -313,7 +331,7 @@ async function promptUser() {
   if (hasMinified) {
     console.log('Quelle version des assets inclure ?');
     console.log('  1. Uniquement minifiés (.min.css / .min.js)');
-    console.log('  2. Uniquement normaux (.css / .js)');
+    console.log('  2. Uniquement normaux (.css / .scss / .js)');
     console.log('  3. Tout (minifiés + normaux)');
     
     const choice = await question('\nVotre choix [1-3] (défaut: 2): ');
