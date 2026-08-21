@@ -78,3 +78,16 @@ Pour débloquer l'Édition Pro : <https://pro.julien-moreau.fr/products/centrala
 ## Licence
 
 GPL v2+ — © Julien Moreau (Gotcha)
+
+<!-- jm-conformite-lot-commun -->
+
+---
+
+## 🔒 Réseau et confidentialité
+
+Cette extension utilise un **lot de composants communs** — bibliothèques d'affichage et polices, libres et open source — qui n'est pas embarqué dans cette archive.
+
+- **À l'activation et à chaque mise à jour**, l'extension le télécharge depuis `https://pro.julien-moreau.fr/commons/`, vérifie sa signature cryptographique (Ed25519) et son empreinte SHA-256, puis l'installe dans `local/jm-commons/` de votre galerie — **hors du dossier de l'extension**, parce qu'il est partagé par toutes nos extensions et n'est ainsi téléchargé qu'une seule fois.
+- **Aucune donnée n'est transmise** lors de ce téléchargement : la requête est anonyme, sans identifiant, sans nom de domaine ni paramètre. Comme pour tout téléchargement, notre serveur voit l'**adresse IP publique** de votre galerie et l'horodatage de la requête.
+- **Ce lot n'est demandé qu'à ces deux moments** : aucune vérification périodique ne le concerne, et son téléchargement ne sert à aucune mesure d'audience.
+- **Sans accès à Internet**, l'extension reste fonctionnelle : les composants absents se replient sur une version simplifiée. Le lot peut aussi s'installer à la main — voir la FAQ : <https://pro.julien-moreau.fr/legal/faq.php>

@@ -76,3 +76,16 @@ To unlock the Pro Edition: <https://pro.julien-moreau.fr/products/centraladmin/>
 ## License
 
 GPL v2+ — © Julien Moreau (Gotcha)
+
+<!-- jm-conformite-lot-commun -->
+
+---
+
+## 🔒 Network & privacy
+
+This extension uses a **shared components bundle** — display libraries and fonts, all free and open source — which is not included in this archive.
+
+- **On activation and on every update**, the extension downloads it from `https://pro.julien-moreau.fr/commons/`, verifies its cryptographic signature (Ed25519) and its SHA-256 digest, then installs it into `local/jm-commons/` in your gallery — **outside the extension's own folder**, because it is shared by all our extensions and is therefore downloaded only once.
+- **No data is submitted** during that download: the request is anonymous, with no identifier, no domain name and no parameter. As with any download, our server sees your gallery's **public IP address** and the time of the request.
+- **That bundle is requested at those two moments only**: no periodic check concerns it, and downloading it feeds no audience measurement.
+- **Without Internet access** the extension still works: missing components fall back to a simplified version. The bundle can also be installed by hand — see the FAQ: <https://pro.julien-moreau.fr/legal/faq.php>
